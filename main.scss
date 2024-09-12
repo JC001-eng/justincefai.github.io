@@ -2,15 +2,18 @@ $tablet-min-width: 768px;
 $desktop-min-width: 1224px;
 
 @font-face {
-  font-family: 'GRIFTER';
-  src: url('/fonts/Grifter-Bold-Updated/grifter_bold-webfont.ttf') format('ttf'),
-       url('/fonts/Grifter-Bold-Updated/grifter_bold-webfont.woff') format('woff'),
-       url('/fonts/Grifter-Bold-Updated/grifter_bold-webfont.woff2') format('woff2');
+  font-family: "GRIFTER";
+  src: url("/fonts/Grifter-Bold-Updated/grifter_bold-webfont.ttf") format("ttf"),
+    url("/fonts/Grifter-Bold-Updated/grifter_bold-webfont.woff") format("woff"),
+    url("/fonts/Grifter-Bold-Updated/grifter_bold-webfont.woff2")
+      format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -21,6 +24,7 @@ $desktop-min-width: 1224px;
 html {
   font-size: 14px;
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
@@ -30,20 +34,43 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  height: 100%;
+  overflow: hidden;
+
+  &.modal-open {
+    background-color: #f8f8f6;
+  }
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
   color: #333;
+}
+
+b.email {
+  overflow-wrap: anywhere;
 }
 
 a {
@@ -52,7 +79,8 @@ a {
   text-decoration: none;
 }
 
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
 
@@ -98,17 +126,24 @@ a {
   &__content {
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     position: relative;
     overflow: hidden;
     margin: 0 auto;
     width: 100%;
     max-width: 1660px;
-    height: 100vh;
+    height: 100%;
   }
 
   &__main {
     margin: 0 auto;
+    height: 100%;
+
+    @media (min-width: 280px) {
+      &.modal-open {
+        display: none;
+      }
+    }
   }
 
   &__bg {
@@ -119,7 +154,7 @@ a {
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('/media/blur1.png');
+      background-image: url("/media/blur1.png");
       background-size: 200%;
       background-position: center;
       background-repeat: repeat;
@@ -161,17 +196,17 @@ nav.homepage-nav {
         display: inline-block;
         transition: ease 200ms;
 
-        &:hover{ 
+        &:hover {
           transition: ease 200ms;
           transform: scale(1.1);
           -moz-transform: scale(1.1);
-          -webkit-transform: scale(1.1); 
+          -webkit-transform: scale(1.1);
         }
       }
 
       &:hover {
         transform: scale(1.2);
-        -webkit-transform: scale(1.2); 
+        -webkit-transform: scale(1.2);
         transition: ease 200ms;
         color: #111;
       }
@@ -192,6 +227,7 @@ nav.homepage-nav {
 }
 
 .title-container {
+
   .title {
     position: fixed;
     top: 50%;
@@ -200,27 +236,34 @@ nav.homepage-nav {
     width: 100%;
     max-width: 72vw;
     z-index: 1;
-  
+
+    @media (orientation: landscape) and (max-width: 768px) {
+      max-width: 34vw;
+    }
+
     @media (min-width: $tablet-min-width) {
       max-width: 42rem;
     }
-  
+
     h1 {
       font-size: 14vw;
-  
-      @media (min-width: $tablet-min-width) {
-        font-size: 8.2rem;
-      }
-  
       display: grid;
       width: 100%;
       margin: 0 auto;
       max-width: 620px;
-    
+
+      @media (orientation: landscape) and (max-width: 768px) {
+        font-size: 6vw;
+      }
+
+      @media (min-width: $tablet-min-width) {
+        font-size: 8.2rem;
+      }
+
       span {
         max-width: fit-content;
         line-height: 0.78;
-    
+
         &.last {
           justify-self: flex-end;
         }
@@ -230,30 +273,37 @@ nav.homepage-nav {
 }
 
 .svg-container {
-  width: 100vw;
-  height: auto;    
-  transform: translateY(-9vw);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(7.5%, -17.5%);
+
+  @media (orientation: landscape) and (max-width: 768px) {
+    transform: translate(-5%, -5.5%);
+  }
 
   @media (min-width: $tablet-min-width) {
-    display: block;
-    width: 60rem;
-    height: 60rem;
-    transform: translateY(-65px);
+    transform: translate(7.5%, -15%);
   }
 
-  svg {
-    display: block;
+  .circle-svg {
+    width: clamp(180px, 50vw, 450px);
+    height: auto;
     animation: rotating 30s linear infinite;
-  }
+
+    @media (orientation: landscape) and (max-width: 768px) {
+      width: 170px;
+    }
   
-  text {
-    font-size: 14px;
-    font-style: italic;
-    font-weight: 100;
-    fill: #111;
-    position: fixed;
-    opacity: 1;
-    transform: translate(25%, 25%);
+    & text {
+      font-size: 29px;
+      fill: #111;
+      font-style: italic;
+      font-weight: 100;
+    }
   }
 
   .panel-hide {
@@ -261,14 +311,18 @@ nav.homepage-nav {
     width: 500px;
     height: 250px;
     position: absolute;
-    top: 49%;
+    top: 50%;
     left: 50%;
     z-index: 0;
     background-color: #fff;
     filter: blur(3px);
 
+    @media (orientation: landscape) and (max-width: 768px) {
+      top: 40%;
+    }
+
     @media (min-width: $desktop-min-width) {
-      transform: translate(-50%) rotate(17deg);
+      transform: translate(-50%) rotate(16deg);
     }
   }
 }
@@ -301,7 +355,7 @@ nav.homepage-nav {
     font-size: 16px;
     margin: 0 auto;
     line-height: 1.5;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     color: #000;
   }
 }
@@ -329,7 +383,7 @@ p.centered {
   text-align: center;
   font-size: 1.4rem;
   line-height: 1.7;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   padding: 40px;
   border: 1px solid #333;
 
@@ -361,6 +415,8 @@ p.centered {
   & svg {
     fill: #333;
     transition: ease-in-out 200ms;
+    width: 32px;
+    height: 32px;
 
     &:hover {
       fill: #111;
@@ -383,7 +439,7 @@ p.centered {
       height: 100vh;
       font-size: 20px;
       background-color: #fff;
-      z-index: 1001;
+      z-index: 99999;
 
       @media (min-width: 280px) {
         display: none;
@@ -399,6 +455,7 @@ p.centered {
       @media (min-width: 2400px) {
         display: block;
         transform: rotate(-90deg);
+        z-index: 99999;
       }
     }
   }

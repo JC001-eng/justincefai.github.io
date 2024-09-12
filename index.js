@@ -15,12 +15,15 @@ const closeWork = document.getElementById("closeWork");
 
 const showProjects = document.getElementById("showProjects");
 const showTestimonials = document.getElementById("showTestimonials");
+const wrapperMain = document.getElementById("wrapper-main");
 
 document.addEventListener("DOMContentLoaded", function () {
   // Open About Modal
   openAbout.onclick = function (event) {
     event.preventDefault();
     aboutModal.classList.add("show");
+    document.body.classList.add('modal-open');
+    wrapperMain.classList.add('modal-open');
 
     fetch("/about/about.html")
       .then((response) => response.text())
@@ -32,12 +35,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   closeAbout.onclick = function () {
     aboutModal.classList.remove("show");
+    document.body.classList.remove('modal-open');
+    wrapperMain.classList.remove('modal-open');
   };
 
   // Open Contact Modal
   openContact.onclick = function (event) {
     event.preventDefault();
     contactModal.classList.add("show");
+    document.body.classList.add('modal-open');
+    wrapperMain.classList.add('modal-open');
 
     fetch("/contact/contact.html")
       .then((response) => response.text())
@@ -49,12 +56,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   closeContact.onclick = function () {
     contactModal.classList.remove("show");
+    document.body.classList.remove('modal-open');
+    wrapperMain.classList.remove('modal-open');
   };
 
   // Open Work Modal
   openWork.onclick = function (event) {
     event.preventDefault();
     workModal.classList.add("show");
+    document.body.classList.add('modal-open');
+    wrapperMain.classList.add('modal-open');
 
     fetch("/work/workV2.html")
       .then((response) => response.text())
@@ -91,12 +102,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   closeWork.onclick = function () {
     workModal.classList.remove("show");
+    document.body.classList.remove('modal-open');
+    wrapperMain.classList.remove('modal-open');
   };
 
   document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
       workModal.classList.remove("show");
-      document.body.classList.remove("body-no-scroll");
+      document.body.classList.remove('modal-open');
+      wrapperMain.classList.remove('modal-open');
     }
   });
 

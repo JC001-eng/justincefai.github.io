@@ -21,6 +21,7 @@
   flex-wrap: wrap;
   align-content: center;
   min-height: 100%;
+  width: 100%;
 }
 
 .modal-content {
@@ -31,14 +32,14 @@
   margin: 0;
   width: 100%;
   height: auto;
-  display: grid;
+  display: flex;
   align-items: flex-start;
+  justify-content: center;
   min-height: 200px;
 }
 @media (min-width: 992px) {
   .modal-content {
     min-height: 100%;
-    max-width: 1660px;
   }
 }
 

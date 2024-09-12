@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <div class="wrapper__main">
+    <div class="wrapper__main" id="wrapper-main">
       <div class="wrapper__bg"></div>
       <div class="wrapper__content">
         <nav class="homepage-nav">
@@ -32,28 +32,19 @@
               <span class="first">JUSTIN</span><span class="last">CEFAI</span>
             </h1>
           </div>
-          <div class="svg-container">
-            <svg viewBox="0 0 800 800" preserveAspectRatio="xMinYMin meet">
-              <defs>
-                <path
-                  id="circlePath"
-                  d="M 200, 200 m -145, 0 a 145,145 0 1,1 290,0 a 145,145 0 1,1 -290,0"
-                  transform="scale(1)"
-                />
-              </defs>
-              <text>
-                <textPath
-                  href="#circlePath"
-                  startOffset="50%"
-                  text-anchor="middle"
-                >
-                  software engineer • software engineer • software engineer •
-                  software engineer • software engineer • software engineer •
-                </textPath>
-              </text>
-            </svg>
-            <div class="panel-hide"></div>
-          </div>
+					<div class="svg-container">
+						<svg class="circle-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+							<defs>
+								<path id="circlePath" d="M 400,400 m -300,0 a 300,300 0 1,1 600,0 a 300,300 0 1,1 -600,0" />
+							</defs>
+							<text>
+								<textPath textLength="237%" href="#circlePath" startOffset="51%" text-anchor="middle">
+									• software engineer • software engineer • software engineer • software engineer • software engineer • software engineer •
+								</textPath>
+							</text>
+						</svg>
+						<div class="panel-hide"></div>
+					</div>					
         </div>
         <div class="socials">
           <a
