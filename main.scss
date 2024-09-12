@@ -1,11 +1,11 @@
 $tablet-min-width: 768px;
-$desktop-min-width: 992px;
+$desktop-min-width: 1224px;
 
 @font-face {
   font-family: 'GRIFTER';
-  src: url('/fonts/GRIFTER\ Bold.otf') format('otf'),
-       url('/fonts/GRIFTERBold.woff') format('woff'),
-       url('/fonts/GRIFTERBold.woff2') format('woff2');
+  src: url('/fonts/Grifter-Bold-Updated/grifter_bold-webfont.ttf') format('ttf'),
+       url('/fonts/Grifter-Bold-Updated/grifter_bold-webfont.woff') format('woff'),
+       url('/fonts/Grifter-Bold-Updated/grifter_bold-webfont.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -19,8 +19,8 @@ $desktop-min-width: 992px;
 }
 
 html {
-  scroll-behavior: smooth !important;
   font-size: 14px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -147,11 +147,11 @@ nav.homepage-nav {
 
     li {
       cursor: pointer;
-      font-size: 0.8rem;
+      font-size: 16px;
       color: #333;
 
       @media (min-width: $desktop-min-width) {
-        font-size: 1rem;
+        font-size: 16px;
         border-top: 10px solid transparent;
         margin: -10px 0 0 -10px;
       }
@@ -185,7 +185,7 @@ nav.homepage-nav {
       }
 
       &.nav-hire {
-        transform: rotate(90deg);
+        transform: rotate(90deg) translateX(6px);
       }
     }
   }
@@ -195,20 +195,20 @@ nav.homepage-nav {
   .title {
     position: fixed;
     top: 50%;
-    left: 47%;
-    transform: translate(-50%, -50%);
+    left: 50%;
+    transform: translate(-54%, -50%);
     width: 100%;
     max-width: 72vw;
     z-index: 1;
   
-    @media (min-width: $desktop-min-width) {
+    @media (min-width: $tablet-min-width) {
       max-width: 42rem;
     }
   
     h1 {
       font-size: 14vw;
   
-      @media (min-width: $desktop-min-width) {
+      @media (min-width: $tablet-min-width) {
         font-size: 8.2rem;
       }
   
@@ -234,7 +234,7 @@ nav.homepage-nav {
   height: auto;    
   transform: translateY(-9vw);
 
-  @media (min-width: $desktop-min-width) {
+  @media (min-width: $tablet-min-width) {
     display: block;
     width: 60rem;
     height: 60rem;
@@ -274,45 +274,55 @@ nav.homepage-nav {
 }
 
 .about-container {
-  margin: 30px auto 0;
-  width: 80%;
+  margin: 80px auto 0;
+  padding: 0 36px;
+  width: 100%;
   height: auto;
 
   @media (min-width: $tablet-min-width) {
-    margin: 0 auto;
-    width: 60%;
+    margin: 40px auto;
+    padding: 0;
+    max-width: 620px;
+  }
+
+  .copy {
+    margin: 40px auto;
+
+    @media (min-width: $desktop-min-width) {
+      margin: 50px auto;
+    }
   }
 
   & p {
-    line-height: 1.7;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    margin: 0 auto;
+    line-height: 1.5;
     letter-spacing: .5px;
-
-    &.quote {
-      font-size: 80px;
-      font-weight: 700;
-      line-height: 0.3;
-      margin: 24px 0;
-      transform: translateY(30px);
-    }
+    color: #000;
   }
 }
 
 .img-med {
   width: 100%;
-  max-width: 250px;
+  max-width: 350px;
   margin: 12px auto;
-
-  @media (min-width: $desktop-min-width) {
-    max-width: 350px;
-  }
 }
 
 .contact-wrapper {
   display: grid;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 80px);
+  height: 100vh;
   margin: 0 auto;
+  padding: 0 20px;
+
+  @media (min-width: $desktop-min-width) {
+    height: calc(100vh - 80px);
+  }
 }
 
 p.centered {
@@ -320,6 +330,14 @@ p.centered {
   font-size: 1.4rem;
   line-height: 1.7;
   letter-spacing: .5px;
+  padding: 40px;
+  border: 1px solid #333;
+
+  @media (min-width: $desktop-min-width) {
+    max-width: 50vw;
+    font-size: 1.8rem;
+    padding: 50px;
+  }
 
   & a {
     transition: all ease-in-out 100ms;

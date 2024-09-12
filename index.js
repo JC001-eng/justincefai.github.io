@@ -1,32 +1,3 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   // Get references to the buttons and sections
-//   const projectsButton = document.getElementById("showProjects");
-//   const testimonialsButton = document.getElementById("showTestimonials");
-//   const projectsSection = document.getElementById("projects");
-//   const testimonialsSection = document.getElementById("testimonials");
-
-//   console.log(testimonialsButton)
-
-//   // Show Projects and hide Testimonials on page load
-//   projectsSection.style.display = "block";
-//   testimonialsSection.style.display = "none";
-
-//   // Event listener for the "Projects" button
-//   projectsButton.addEventListener("click", function (e) {
-//     e.preventDefault();
-//     projectsSection.style.display = "block"; // Show Projects section
-//     testimonialsSection.style.display = "none"; // Hide Testimonials section
-//   });
-
-//   // Event listener for the "Testimonials" button
-//   testimonialsButton.addEventListener("click", function (e) {
-//     e.preventDefault();
-//     console.log("button clicked")
-//     testimonialsSection.style.display = "block"; // Show Testimonials section
-//     projectsSection.style.display = "none"; // Hide Projects section
-//   });
-// });
-
 const aboutModal = document.getElementById("aboutModal");
 const aboutBody = document.getElementById("aboutBody");
 const openAbout = document.getElementById("openAbout");
@@ -85,27 +56,34 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
     workModal.classList.add("show");
 
-    fetch("/work/work.html")
+    fetch("/work/workV2.html")
       .then((response) => response.text())
       .then((data) => {
         workBody.innerHTML = data;
 
         const projects = document.getElementById("projects");
         const testimonials = document.getElementById("testimonials");
+        const projectsNav = document.getElementById("projectsNav");
+        const testimonialsNav = document.getElementById("testimonialsNav");
 
         projects.classList.add("show"); 
         testimonials.classList.remove("show");
+        projectsNav.classList.add("active");
 
-        document.getElementById("projectsNav").onclick = function (event) {
+        projectsNav.onclick = function (event) {
           event.preventDefault();
           projects.classList.add("show");
           testimonials.classList.remove("show");
+          testimonialsNav.classList.remove("active");
+          projectsNav.classList.add("active");
         };
 
-        document.getElementById("testimonialsNav").onclick = function (event) {
+        testimonialsNav.onclick = function (event) {
           event.preventDefault();
           projects.classList.remove("show");
           testimonials.classList.add("show");
+          testimonialsNav.classList.add("active");
+          projectsNav.classList.remove("active");
         };
       })
       .catch((error) => console.error("Error loading work page:", error));
