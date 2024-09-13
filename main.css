@@ -326,7 +326,7 @@ nav.homepage-nav ul li.nav-hire {
   display: grid;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -341,8 +341,13 @@ p.centered {
   font-size: 1.4rem;
   line-height: 1.7;
   letter-spacing: 0.5px;
-  padding: 40px;
+  padding: 36px 24px;
   border: 1px solid #333;
+}
+@media (min-width: 768px) {
+  p.centered {
+    padding: 40px;
+  }
 }
 @media (min-width: 1224px) {
   p.centered {
