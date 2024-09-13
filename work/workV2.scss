@@ -83,7 +83,7 @@ $desktop-min-width: 1224px;
       & span.bullet {
         font-size: 34px;
         line-height: 0.57;
-        vertical-align: bottom;
+        vertical-align: middle;
         margin: 0 0 0 6px;
         color: red;
         opacity: 0;
@@ -141,7 +141,7 @@ $desktop-min-width: 1224px;
           margin: 0;
           padding: 4px 0;
           color: #909090;
-          
+
           &.active {
             color: #000;
           }
