@@ -121,3 +121,16 @@ window.onclick = (event) => {
     }
   });
 };
+
+document.addEventListener('click', (event) => {
+  const { target } = event;
+
+  if (target.classList.contains('read-more')) {
+    const content = target.parentElement.previousElementSibling;
+
+    if (content && content.classList.contains('line-clamp')) {
+      content.classList.remove("line-clamp");
+      target.style.display = 'none';
+    }
+  }
+});
