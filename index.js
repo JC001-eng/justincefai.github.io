@@ -1,223 +1,123 @@
-const aboutModal = document.getElementById("aboutModal");
-const aboutBody = document.getElementById("aboutBody");
-const openAbout = document.getElementById("openAbout");
-const closeAbout = document.getElementById("closeAbout");
-
-const contactModal = document.getElementById("contactModal");
-const contactBody = document.getElementById("contactBody");
-const openContact = document.getElementById("openContact");
-const closeContact = document.getElementById("closeContact");
-
-const closeMobileNavBtn = document.getElementById("closeMobileNav");
-
-const workModal = document.getElementById("workModal");
-const workBody = document.getElementById("workBody");
-const openWork = document.getElementById("openWork");
-const closeWork = document.getElementById("closeWork");
-
-
-const openWorkDesktop = document.getElementById("openWorkDesktop");
-const closeWorkDesktop = document.getElementById("closeWorkDesktop");
-const openContactDesktop = document.getElementById("openContactDesktop");
-const closeContactDesktop = document.getElementById("closeContactDesktop");
-const openAboutDesktop = document.getElementById("openAboutDesktop");
-const closeAboutDesktop = document.getElementById("closeAboutDesktop");
-
-const showProjects = document.getElementById("showProjects");
-const showTestimonials = document.getElementById("showTestimonials");
+const getById = id => document.getElementById(id);
 const wrapperMain = document.getElementById("wrapper-main");
-const mobileNavButton = document.getElementById("mobile-nav-button");
-const mobileNavList = document.getElementById("mobile-nav-list");
-const mobileSvgTop = document.getElementById("bar-top");
-const mobileSvgBottom = document.getElementById("bar-bottom");
 
-document.addEventListener("DOMContentLoaded", function () {
-
-  function closeMobileNav() {
-    mobileNavList.classList.remove("visible");
+const modals = {
+  about: {
+    modal: getById("aboutModal"),
+    body: getById("aboutBody"),
+    openButtons: [getById("openAbout"), getById("openAboutDesktop")],
+    closeButton: getById("closeAbout"),
+    url: "/about/about.html"
+  },
+  contact: {
+    modal: getById("contactModal"),
+    body: getById("contactBody"),
+    openButtons: [getById("openContact"), getById("openContactDesktop")],
+    closeButton: getById("closeContact"),
+    url: "/contact/contact.html"
+  },
+  work: {
+    modal: getById("workModal"),
+    body: getById("workBody"),
+    openButtons: [getById("openWork"), getById("openWorkDesktop")],
+    closeButton: getById("closeWork"),
+    url: "/work/workV2.html"
   }
+};
 
-  mobileNavButton.onclick = function () {
-    mobileNavList.classList.add("visible");
-  }
+const openModal = (modalObj) => {
+  const { modal, body, url } = modalObj;
+  modal.classList.add("show");
+  document.body.classList.add('modal-open');
+  wrapperMain.classList.add('modal-open');
 
-  closeMobileNavBtn.onclick = function() {
-    closeMobileNav();
-  }
+  body.innerHTML = '';
 
-  // Open About Modal
-  openAbout.onclick = function (event) {
-    event.preventDefault();
-    aboutModal.classList.add("show");
-    document.body.classList.add('modal-open');
-    wrapperMain.classList.add('modal-open');
+  fetch(url)
+    .then((response) => response.text())
+    .then((data) => {
+      body.innerHTML = data;
 
-    fetch("/about/about.html")
-      .then((response) => response.text())
-      .then((data) => {
-        aboutBody.innerHTML = data;
-      })
-      .catch((error) => console.error("Error loading about page:", error));
-  };
+      if (modalObj === modals.work) {
+        setupWorkNavigation();
+      }
+    })
+    .catch((error) => console.error(`Error loading ${url}:`, error));
+};
 
-  openAboutDesktop.onclick = function (event) {
-    event.preventDefault();
-    aboutModal.classList.add("show");
-    document.body.classList.add('modal-open');
-    wrapperMain.classList.add('modal-open');
+const closeModal = (modal) => {
+  modal.classList.remove("show");
+  document.body.classList.remove('modal-open');
+  wrapperMain.classList.remove('modal-open');
+  closeMobileNav();
+};
 
-    fetch("/about/about.html")
-      .then((response) => response.text())
-      .then((data) => {
-        aboutBody.innerHTML = data;
-      })
-      .catch((error) => console.error("Error loading about page:", error));
-  };
-
-  closeAbout.onclick = function () {
-    aboutModal.classList.remove("show");
-    document.body.classList.remove('modal-open');
-    wrapperMain.classList.remove('modal-open');
-    closeMobileNav();
-  };
-
-  // Open Contact Modal
-  openContact.onclick = function (event) {
-    event.preventDefault();
-    contactModal.classList.add("show");
-    document.body.classList.add('modal-open');
-    wrapperMain.classList.add('modal-open');
-
-    fetch("/contact/contact.html")
-      .then((response) => response.text())
-      .then((data) => {
-        contactBody.innerHTML = data;
-      })
-      .catch((error) => console.error("Error loading contact page:", error));
-  };
-
-  openContactDesktop.onclick = function (event) {
-    event.preventDefault();
-    contactModal.classList.add("show");
-    document.body.classList.add('modal-open');
-    wrapperMain.classList.add('modal-open');
-
-    fetch("/contact/contact.html")
-      .then((response) => response.text())
-      .then((data) => {
-        contactBody.innerHTML = data;
-      })
-      .catch((error) => console.error("Error loading contact page:", error));
-  };
-
-  closeContact.onclick = function () {
-    contactModal.classList.remove("show");
-    document.body.classList.remove('modal-open');
-    wrapperMain.classList.remove('modal-open');
-    closeMobileNav();
-  };
-
-  // Open Work Modal
-  openWork.onclick = function (event) {
-    event.preventDefault();
-    workModal.classList.add("show");
-    document.body.classList.add('modal-open');
-    wrapperMain.classList.add('modal-open');
-
-    fetch("/work/workV2.html")
-      .then((response) => response.text())
-      .then((data) => {
-        workBody.innerHTML = data;
-
-        const projects = document.getElementById("projects");
-        const testimonials = document.getElementById("testimonials");
-        const projectsNav = document.getElementById("projectsNav");
-        const testimonialsNav = document.getElementById("testimonialsNav");
-
-        projects.classList.add("show"); 
-        testimonials.classList.remove("show");
-        projectsNav.classList.add("active");
-
-        projectsNav.onclick = function (event) {
-          event.preventDefault();
-          projects.classList.add("show");
-          testimonials.classList.remove("show");
-          testimonialsNav.classList.remove("active");
-          projectsNav.classList.add("active");
-        };
-
-        testimonialsNav.onclick = function (event) {
-          event.preventDefault();
-          projects.classList.remove("show");
-          testimonials.classList.add("show");
-          testimonialsNav.classList.add("active");
-          projectsNav.classList.remove("active");
-        };
-      })
-      .catch((error) => console.error("Error loading work page:", error));
-  };
-
-  openWorkDesktop.onclick = function (event) {
-    event.preventDefault();
-    workModal.classList.add("show");
-    document.body.classList.add('modal-open');
-    wrapperMain.classList.add('modal-open');
-
-    fetch("/work/workV2.html")
-      .then((response) => response.text())
-      .then((data) => {
-        workBody.innerHTML = data;
-
-        const projects = document.getElementById("projects");
-        const testimonials = document.getElementById("testimonials");
-        const projectsNav = document.getElementById("projectsNav");
-        const testimonialsNav = document.getElementById("testimonialsNav");
-
-        projects.classList.add("show"); 
-        testimonials.classList.remove("show");
-        projectsNav.classList.add("active");
-
-        projectsNav.onclick = function (event) {
-          event.preventDefault();
-          projects.classList.add("show");
-          testimonials.classList.remove("show");
-          testimonialsNav.classList.remove("active");
-          projectsNav.classList.add("active");
-        };
-
-        testimonialsNav.onclick = function (event) {
-          event.preventDefault();
-          projects.classList.remove("show");
-          testimonials.classList.add("show");
-          testimonialsNav.classList.add("active");
-          projectsNav.classList.remove("active");
-        };
-      })
-      .catch((error) => console.error("Error loading work page:", error));
-  };
-
-  closeWork.onclick = function () {
-    workModal.classList.remove("show");
-    document.body.classList.remove('modal-open');
-    wrapperMain.classList.remove('modal-open');
-    closeMobileNav();
-  };
-
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-      workModal.classList.remove("show");
-      document.body.classList.remove('modal-open');
-      wrapperMain.classList.remove('modal-open');
-      closeMobileNav();
-    }
+const setupModalButtons = (modalObj) => {
+  modalObj.openButtons.forEach(button => {
+    button.onclick = (event) => {
+      event.preventDefault();
+      openModal(modalObj);
+    };
   });
 
-  window.onclick = function (event) {
-    if (event.target == aboutModal) {
-      aboutModal.classList.remove("show");
-    }
-    if (event.target == contactModal) {
-      contactModal.classList.remove("show");
-    }
+  modalObj.closeButton.onclick = () => {
+    closeModal(modalObj.modal);
   };
+};
+
+Object.values(modals).forEach(modalObj => setupModalButtons(modalObj));
+
+const mobileNavButton = getById("mobile-nav-button");
+const mobileNavList = getById("mobile-nav-list");
+const closeMobileNavBtn = getById("closeMobileNav");
+
+function closeMobileNav() {
+  mobileNavList.classList.remove("visible");
+}
+
+mobileNavButton.onclick = () => {
+  mobileNavList.classList.add("visible");
+};
+
+closeMobileNavBtn.onclick = closeMobileNav;
+
+const setupWorkNavigation = () => {
+  const projects = getById("projects");
+  const testimonials = getById("testimonials");
+  const projectsNav = getById("projectsNav");
+  const testimonialsNav = getById("testimonialsNav");
+
+  projects.classList.add("show");
+  testimonials.classList.remove("show");
+  projectsNav.classList.add("active");
+
+  projectsNav.onclick = (event) => {
+    event.preventDefault();
+    projects.classList.add("show");
+    testimonials.classList.remove("show");
+    projectsNav.classList.add("active");
+    testimonialsNav.classList.remove("active");
+  };
+
+  testimonialsNav.onclick = (event) => {
+    event.preventDefault();
+    projects.classList.remove("show");
+    testimonials.classList.add("show");
+    testimonialsNav.classList.add("active");
+    projectsNav.classList.remove("active");
+  };
+};
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    Object.values(modals).forEach(modalObj => closeModal(modalObj.modal));
+  }
 });
+
+window.onclick = (event) => {
+  Object.values(modals).forEach(modalObj => {
+    if (event.target === modalObj.modal) {
+      closeModal(modalObj.modal);
+    }
+  });
+};
