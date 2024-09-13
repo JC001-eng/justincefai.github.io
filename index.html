@@ -8,7 +8,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Justin Cefai • Portfolio</title>
-    <meta name="description" content="Justin Cefai's portfolio website, featuring previous work and descriptions.">
+    <meta
+      name="description"
+      content="Justin Cefai's portfolio website, featuring previous work and descriptions."
+    />
     <link rel="stylesheet" href="./main.css" />
     <link rel="stylesheet" href="/modal/modal.css" />
     <link rel="icon" type="image/x-icon" href="/media/favicon.ico" />
@@ -20,8 +23,12 @@
     <div class="wrapper__main" id="wrapper-main">
       <div class="wrapper__bg"></div>
       <div class="wrapper__content">
-        <div class="mobile-nav" id="mobile-nav">
-          <button class="svg-button" id="mobile-nav-button" title="mobile nav button">
+        <div class="mobile-nav-container" id="mobile-nav">
+          <button
+            class="svg-button"
+            id="mobile-nav-button"
+            title="mobile nav button"
+          >
             <svg viewBox="0 0 100 80" width="50" height="50">
               <rect
                 class="bar bar__top"
@@ -39,30 +46,37 @@
               ></rect>
             </svg>
           </button>
+          <nav class="mobile-nav" id="mobile-nav-list">
+            <ul>
+              <li class="nav-about"><a href="#" id="openAbout">about</a></li>
+              <li class="nav-work"><a href="#" id="openWork">work</a></li>
+              <li class="nav-hire"><a href="#" id="openContact">contact</a></li>
+            </ul>
+            <span class="close" id="closeMobileNav"
+              ><svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24 8L8 24M8 8L24 24"
+                  stroke="#1E1E1E"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </nav>
         </div>
-        <nav class="homepage-nav" id="mobile-nav-list">
+        <nav class="desktop-nav">
           <ul>
-            <li class="nav-about"><a href="#" id="openAbout">about</a></li>
-            <li class="nav-work"><a href="#" id="openWork">work</a></li>
-            <li class="nav-hire"><a href="#" id="openContact">contact</a></li>
+            <li class="nav-about"><a href="#" id="openAboutDesktop">about</a></li>
+            <li class="nav-work"><a href="#" id="openWorkDesktop">work</a></li>
+            <li class="nav-hire"><a href="#" id="openContactDesktop">contact</a></li>
           </ul>
-					<span class="close" id="closeMobileNav"
-					><svg
-						width="32"
-						height="32"
-						viewBox="0 0 32 32"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							d="M24 8L8 24M8 8L24 24"
-							stroke="#1E1E1E"
-							stroke-width="3"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						/>
-					</svg>
-				</span>
         </nav>
         <div class="title-container">
           <div class="title">
@@ -102,7 +116,7 @@
             href="https://www.linkedin.com/in/justin-cefai-54763976/"
             target="_blank"
             rel="noopener noreferrer"
-						aria-label="Link to LinkedIn"
+            aria-label="Link to LinkedIn"
           >
             <svg width="24" height="24" viewBox="0 0 24 24">
               <path
@@ -114,7 +128,7 @@
             href="https://www.instagram.com/justincefai/"
             target="_blank"
             rel="noopener noreferrer"
-						aria-label="Link to Instagram"
+            aria-label="Link to Instagram"
           >
             <svg width="24" height="24" viewBox="0 0 24 24">
               <path
