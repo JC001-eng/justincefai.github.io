@@ -49,13 +49,19 @@ $desktop-min-width: 992px;
   position: absolute;
   top: 24px;
   right: 24px;
-  color: #333;
+  color: #000;
   font-size: 32px;
   font-weight: bold;
   line-height: 0.5;
   z-index: 4;
   border-radius: 50%;
   background-color: #f8f8f6;
+  -webkit-tap-highlight-color: transparent;
+
+  &:active, &:focus {
+    border: none;
+    background-color: none;
+  }
 
   @media (min-width: $desktop-min-width) {
     top: 32px;

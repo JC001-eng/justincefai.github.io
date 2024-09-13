@@ -7,6 +7,7 @@ const contactModal = document.getElementById("contactModal");
 const contactBody = document.getElementById("contactBody");
 const openContact = document.getElementById("openContact");
 const closeContact = document.getElementById("closeContact");
+const closeMobileNavBtn = document.getElementById("closeMobileNav");
 
 const workModal = document.getElementById("workModal");
 const workBody = document.getElementById("workBody");
@@ -16,8 +17,31 @@ const closeWork = document.getElementById("closeWork");
 const showProjects = document.getElementById("showProjects");
 const showTestimonials = document.getElementById("showTestimonials");
 const wrapperMain = document.getElementById("wrapper-main");
+const mobileNavButton = document.getElementById("mobile-nav-button");
+const mobileNavList = document.getElementById("mobile-nav-list");
+const mobileSvgTop = document.getElementById("bar-top");
+const mobileSvgBottom = document.getElementById("bar-bottom");
 
 document.addEventListener("DOMContentLoaded", function () {
+
+  function closeMobileNav() {
+    mobileNavList.classList.remove("visible");
+    mobileSvgTop.classList.remove("close-top");
+    mobileSvgBottom.classList.remove("close-bottom");
+    mobileNav.classList.remove("close-nav");
+  }
+
+  mobileNavButton.onclick = function () {
+    mobileNavList.classList.add("visible");
+    mobileSvgTop.classList.add("close-top");
+    mobileSvgBottom.classList.add("close-bottom");
+    mobileNav.classList.add("close-nav");
+  }
+
+  closeMobileNavBtn.onclick = function() {
+    closeMobileNav();
+  }
+
   // Open About Modal
   openAbout.onclick = function (event) {
     event.preventDefault();
@@ -37,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     aboutModal.classList.remove("show");
     document.body.classList.remove('modal-open');
     wrapperMain.classList.remove('modal-open');
+    closeMobileNav();
   };
 
   // Open Contact Modal
@@ -58,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
     contactModal.classList.remove("show");
     document.body.classList.remove('modal-open');
     wrapperMain.classList.remove('modal-open');
+    closeMobileNav();
   };
 
   // Open Work Modal
@@ -104,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
     workModal.classList.remove("show");
     document.body.classList.remove('modal-open');
     wrapperMain.classList.remove('modal-open');
+    closeMobileNav();
   };
 
   document.addEventListener('keydown', function (event) {
@@ -111,6 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
       workModal.classList.remove("show");
       document.body.classList.remove('modal-open');
       wrapperMain.classList.remove('modal-open');
+      closeMobileNav();
     }
   });
 

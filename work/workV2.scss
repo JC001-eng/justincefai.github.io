@@ -141,15 +141,7 @@ $desktop-min-width: 1224px;
           margin: 0;
           padding: 4px 0;
           color: #909090;
-
-          // @media (min-width: $tablet-min-width) {
-          //   font-size: 42px;
-          // }
-
-          // @media (min-width: $desktop-min-width) {
-          //   font-size: 50px;
-          // }
-
+          
           &.active {
             color: #000;
           }

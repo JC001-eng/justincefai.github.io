@@ -13,19 +13,56 @@
     <link rel="stylesheet" href="/modal/modal.css" />
     <link rel="icon" type="image/x-icon" href="/media/favicon.ico" />
     <link rel="icon" type="image/png" href="/media/favicon.png" />
-		<link rel="preload" href="/media/jfamily.jpg" as="image">
+    <link rel="preload" href="/media/jfamily.jpg" as="image" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
     <div class="wrapper__main" id="wrapper-main">
       <div class="wrapper__bg"></div>
       <div class="wrapper__content">
-        <nav class="homepage-nav">
+        <div class="mobile-nav" id="mobile-nav">
+          <button class="svg-button" id="mobile-nav-button">
+            <svg viewBox="0 0 100 80" width="50" height="50">
+              <rect
+                class="bar bar__top"
+                id="bar-top"
+                y="0"
+                width="100"
+                height="15"
+              ></rect>
+              <rect
+                class="bar bar__bottom"
+                id="bar-bottom"
+                y="40"
+                width="100"
+                height="15"
+              ></rect>
+            </svg>
+          </button>
+        </div>
+        <nav class="homepage-nav" id="mobile-nav-list">
           <ul>
             <li class="nav-about"><a href="#" id="openAbout">about</a></li>
             <li class="nav-work"><a href="#" id="openWork">work</a></li>
             <li class="nav-hire"><a href="#" id="openContact">contact</a></li>
           </ul>
+					<span class="close" id="closeMobileNav"
+					><svg
+						width="32"
+						height="32"
+						viewBox="0 0 32 32"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M24 8L8 24M8 8L24 24"
+							stroke="#1E1E1E"
+							stroke-width="3"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+				</span>
         </nav>
         <div class="title-container">
           <div class="title">
@@ -33,19 +70,32 @@
               <span class="first">JUSTIN</span><span class="last">CEFAI</span>
             </h1>
           </div>
-					<div class="svg-container">
-						<svg class="circle-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
-							<defs>
-								<path id="circlePath" d="M 400,400 m -300,0 a 300,300 0 1,1 600,0 a 300,300 0 1,1 -600,0" />
-							</defs>
-							<text>
-								<textPath textLength="237%" href="#circlePath" startOffset="51%" text-anchor="middle">
-									• software engineer • software engineer • software engineer • software engineer • software engineer • software engineer •
-								</textPath>
-							</text>
-						</svg>
-						<div class="panel-hide"></div>
-					</div>					
+          <div class="svg-container">
+            <svg
+              class="circle-svg"
+              viewBox="0 0 800 800"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <path
+                  id="circlePath"
+                  d="M 400,400 m -300,0 a 300,300 0 1,1 600,0 a 300,300 0 1,1 -600,0"
+                />
+              </defs>
+              <text>
+                <textPath
+                  textLength="237%"
+                  href="#circlePath"
+                  startOffset="51%"
+                  text-anchor="middle"
+                >
+                  • software engineer • software engineer • software engineer •
+                  software engineer • software engineer • software engineer •
+                </textPath>
+              </text>
+            </svg>
+            <div class="panel-hide"></div>
+          </div>
         </div>
         <div class="socials">
           <a
