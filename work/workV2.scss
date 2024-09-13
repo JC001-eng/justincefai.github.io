@@ -243,29 +243,29 @@ $desktop-min-width: 1224px;
           transition: all ease-in-out 150ms;
 
           &__1 {
-            background-image: url('/media/mobile-video.png');
+            background-image: url('/media/mobile-video.webp');
           }
 
           &__2 {
-            background-image: url('/media/image-grid.png');
+            background-image: url('/media/image-grid.webp');
           }
 
           &__3 {
-            background-image: url('/media/blocks-props.png');
+            background-image: url('/media/blocks-props.webp');
             background-size: contain;
             background-color: #fff;
           }
 
           &__4 {
-            background-image: url('/media/color-picker.png');
+            background-image: url('/media/color-picker.webp');
           }
 
           &__5 {
-            background-image: url('/media/header.png');
+            background-image: url('/media/header.webp');
           }
 
           &__6 {
-            background-image: url('/media/about.png');
+            background-image: url('/media/about.webp');
           }
 
           @media (min-width: $tablet-min-width) {
