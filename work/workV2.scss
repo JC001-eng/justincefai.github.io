@@ -23,13 +23,11 @@ $desktop-min-width: 1224px;
     transition: opacity 0.5s ease-in-out;
     display: none;
   }
-  /* Show class for visible sections */
   #projects.show,
   #testimonials.show {
     display: block;
   }
 
-  /* Hide class for hidden sections */
   #projects.hide,
   #testimonials.hide {
     display: none;
@@ -110,7 +108,7 @@ $desktop-min-width: 1224px;
 
     font-family: "Grifter-Regular-Updated", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 700;
+    font-weight: 500;
     font-style: normal;
 
     span {
