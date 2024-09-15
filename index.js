@@ -1,26 +1,30 @@
 const getById = id => document.getElementById(id);
+
 const wrapperMain = document.getElementById("wrapper-main");
 
 const modals = {
   about: {
     modal: getById("aboutModal"),
     body: getById("aboutBody"),
-    openButtons: [getById("openAbout"), getById("openAboutDesktop")],
+    openButtons: [getById("openAbout")],
     closeButton: getById("closeAbout"),
+    homeButton: getById("aboutHomeButton"),  // Use unique ID for home button
     url: "/about/about.html"
   },
   contact: {
     modal: getById("contactModal"),
     body: getById("contactBody"),
-    openButtons: [getById("openContact"), getById("openContactDesktop")],
+    openButtons: [getById("openContact")],
     closeButton: getById("closeContact"),
+    homeButton: getById("contactHomeButton"),  // Use unique ID for home button
     url: "/contact/contact.html"
   },
   work: {
     modal: getById("workModal"),
     body: getById("workBody"),
-    openButtons: [getById("openWork"), getById("openWorkDesktop")],
+    openButtons: [getById("openWork")],
     closeButton: getById("closeWork"),
+    homeButton: getById("workHomeButton"),  // Use unique ID for home button
     url: "/work/workV2.html"
   }
 };
@@ -46,13 +50,18 @@ const openModal = (modalObj) => {
 };
 
 const closeModal = (modal) => {
-  modal.classList.remove("show");
+  if (modal) {
+    console.log("Closing modal:", modal); // Log the modal being closed
+    modal.classList.remove("show");       // Remove the 'show' class
+  } else {
+    console.error("Modal reference not found!");
+  }
   document.body.classList.remove('modal-open');
   wrapperMain.classList.remove('modal-open');
-  closeMobileNav();
 };
 
 const setupModalButtons = (modalObj) => {
+  // Open modal when any of the open buttons is clicked
   modalObj.openButtons.forEach(button => {
     button.onclick = (event) => {
       event.preventDefault();
@@ -60,26 +69,34 @@ const setupModalButtons = (modalObj) => {
     };
   });
 
+  // Close modal when close button is clicked
   modalObj.closeButton.onclick = () => {
-    closeModal(modalObj.modal);
+    closeModal(modalObj.modal); // Pass the correct modal to close
+  };
+
+  // Close both modal and navigation when home button is clicked
+  modalObj.homeButton.onclick = () => {
+    closeModal(modalObj.modal); // Pass the correct modal to close
+    closeNav(); // Close the navigation
   };
 };
 
+// Initialize all modal buttons for each modal object
 Object.values(modals).forEach(modalObj => setupModalButtons(modalObj));
 
-const mobileNavButton = getById("mobile-nav-button");
-const mobileNavList = getById("mobile-nav-list");
-const closeMobileNavBtn = getById("closeMobileNav");
+const navButton = getById("nav-button");
+const navList = getById("nav-list");
+const closeNavBtn = getById("closeNav");
 
-function closeMobileNav() {
-  mobileNavList.classList.remove("visible");
+function closeNav() {
+  navList.classList.remove("visible");
 }
 
-mobileNavButton.onclick = () => {
-  mobileNavList.classList.add("visible");
+navButton.onclick = () => {
+  navList.classList.add("visible");
 };
 
-closeMobileNavBtn.onclick = closeMobileNav;
+closeNavBtn.onclick = closeNav;
 
 const setupWorkNavigation = () => {
   const projects = getById("projects");

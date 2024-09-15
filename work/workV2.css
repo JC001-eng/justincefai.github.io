@@ -5,8 +5,6 @@
   height: 100%;
   margin: 0 auto;
   display: grid;
-  /* Show class for visible sections */
-  /* Hide class for hidden sections */
 }
 @media (min-width: 768px) {
   .main {
