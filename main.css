@@ -368,7 +368,7 @@ button.nav-button .bar__bottom.close-bottom {
   justify-content: center;
   height: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 36px;
 }
 @media (min-width: 1224px) {
   .contact-wrapper {
@@ -378,7 +378,7 @@ button.nav-button .bar__bottom.close-bottom {
 
 p.centered {
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   line-height: 1.7;
   letter-spacing: 0.5px;
   padding: 36px 24px;
@@ -468,11 +468,11 @@ p.centered a:hover {
   display: block;
   position: absolute;
   cursor: pointer;
-  top: 22px;
+  top: 14px;
   left: 18px;
   padding: 20px 30px 30px 20px;
   color: #000;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: regular;
   line-height: 0.5;
   z-index: 11111;
@@ -496,8 +496,8 @@ p.centered a:hover {
   }
 }
 .home .home-arrow {
-  width: 10px;
-  height: 9px;
+  width: 12px;
+  height: 11px;
   display: inline-block;
   margin: 0 2px 0 0;
 }/*# sourceMappingURL=main.css.map */
