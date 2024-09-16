@@ -210,7 +210,7 @@ $desktop-min-width: 1224px;
       font-size: 18px;
       line-height: 1.4;
       font-weight: 500;
-  
+
       @media (min-width: $desktop-min-width) {
         padding: 14px 0 6px;
         font-size: 16px;
@@ -232,25 +232,25 @@ $desktop-min-width: 1224px;
       flex-wrap: wrap;
       width: 100%;
       gap: 56px;
-  
+
       @media (min-width: $tablet-min-width) {
         align-items: flex-start;
       }
-  
+
       @media (min-width: $desktop-min-width) {
         column-gap: 60px;
         row-gap: 40px;
         margin: 0 auto;
         padding: 0 60px 30px 0;
       }
-  
+
       & .project {
         flex: 1 1 100%;
-  
+
         @media (min-width: $tablet-min-width) {
           flex: 1 1 calc(50% - 40px);
         }
-  
+
         .image-container {
           position: relative;
           width: 100%;
@@ -265,29 +265,29 @@ $desktop-min-width: 1224px;
           transition: all ease-in-out 150ms;
 
           &__1 {
-            background-image: url('/media/mobile-video.webp');
+            background-image: url("/media/mobile-video.webp");
           }
 
           &__2 {
-            background-image: url('/media/image-grid.webp');
+            background-image: url("/media/image-grid.webp");
           }
 
           &__3 {
-            background-image: url('/media/blocks-props.webp');
+            background-image: url("/media/blocks-props.webp");
             background-size: contain;
             background-color: #fff;
           }
 
           &__4 {
-            background-image: url('/media/color-picker.webp');
+            background-image: url("/media/color-picker.webp");
           }
 
           &__5 {
-            background-image: url('/media/header.webp');
+            background-image: url("/media/header.webp");
           }
 
           &__6 {
-            background-image: url('/media/about.webp');
+            background-image: url("/media/about.webp");
           }
 
           @media (min-width: $tablet-min-width) {
@@ -297,17 +297,17 @@ $desktop-min-width: 1224px;
           @media (min-width: $desktop-min-width) {
             margin: 0 0 36px;
           }
-  
+
           &:hover {
             opacity: 0.85;
           }
-  
+
           img {
             margin: 0 auto;
             cursor: pointer;
             width: 100%;
             max-width: 300px;
-  
+
             @media (min-width: $desktop-min-width) {
               margin: 0;
             }
@@ -317,7 +317,7 @@ $desktop-min-width: 1224px;
         p {
           font-size: 18px;
           margin: 0 0 10px;
-  
+
           @media (min-width: $desktop-min-width) {
             font-size: 14px;
             margin: 0 0 16px;
@@ -357,7 +357,7 @@ $desktop-min-width: 1224px;
     .testimonial {
       display: flex;
       flex-direction: column;
-      
+
       &:not(:last-of-type) {
         border-bottom: 1px solid #000;
         padding-bottom: 44px;
@@ -382,7 +382,36 @@ $desktop-min-width: 1224px;
     display: -webkit-box;
     line-clamp: 3;
     -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;  
+    -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+}
+
+.scroll-to-top {
+  position: relative;
+  z-index: 999999;
+  margin: -12px 36px 40px auto;
+  cursor: pointer;
+
+  @media (min-width: $desktop-min-width) {
+    margin: -24px 56px 36px auto;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+  }
+
+  svg.arrow {
+    position: relative;
+    z-index: 999999;
+    width: 24px;
+    height: 24px;
+    transform: rotate(90deg);
+    pointer-events: all;
   }
 }

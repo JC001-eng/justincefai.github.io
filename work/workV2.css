@@ -360,4 +360,32 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.scroll-to-top {
+  position: relative;
+  z-index: 999999;
+  margin: -12px 36px 40px auto;
+  cursor: pointer;
+}
+@media (min-width: 1224px) {
+  .scroll-to-top {
+    margin: -24px 56px 36px auto;
+  }
+}
+.scroll-to-top::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+}
+.scroll-to-top svg.arrow {
+  position: relative;
+  z-index: 999999;
+  width: 24px;
+  height: 24px;
+  transform: rotate(90deg);
+  pointer-events: all;
 }/*# sourceMappingURL=workV2.css.map */
