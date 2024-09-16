@@ -184,17 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
         target.style.display = "none";
       }
     }
-
-    const anchor = document.getElementById("work-main");
-
-    const backToTopTarget = event.target.closest('.scroll-to-top, .scroll-to-top svg');
-    
-    if (backToTopTarget) {
-      anchor.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
   });
 
   preloadStylesheets().then(() => {
