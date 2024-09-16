@@ -373,6 +373,11 @@
     margin: -24px 56px 36px auto;
   }
 }
+@media (min-width: 1739px) {
+  .scroll-to-top {
+    display: none;
+  }
+}
 .scroll-to-top::before {
   content: "";
   position: absolute;

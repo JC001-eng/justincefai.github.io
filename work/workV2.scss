@@ -397,6 +397,10 @@ $desktop-min-width: 1224px;
     margin: -24px 56px 36px auto;
   }
 
+  @media (min-width: 1739px) {
+    display: none;
+  }
+
   &::before {
     content: "";
     position: absolute;
