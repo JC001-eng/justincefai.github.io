@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const getById = (id) => document.getElementById(id);
-
-  const wrapperMain = document.getElementById("wrapper-main");
+  const wrapperMain = getById("wrapper-main");
 
   const modals = {
     about: {
@@ -9,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       body: getById("aboutBody"),
       openButtons: [getById("openAbout")],
       closeButton: getById("closeAbout"),
-      homeButton: getById("aboutHomeButton"), // Use unique ID for home button
+      homeButton: getById("aboutHomeButton"),
       url: "/about/about.html",
     },
     contact: {
@@ -17,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       body: getById("contactBody"),
       openButtons: [getById("openContact")],
       closeButton: getById("closeContact"),
-      homeButton: getById("contactHomeButton"), // Use unique ID for home button
+      homeButton: getById("contactHomeButton"),
       url: "/contact/contact.html",
     },
     work: {
@@ -30,19 +29,67 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
+  // Preload background image
+  const preloadBackgroundImage = (url) => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = resolve;
+      img.onerror = reject;
+    });
+  };
+
+  // Preload linked CSS files
+  const preloadStylesheets = () => {
+    const links = document.querySelectorAll('link[rel="stylesheet"]');
+    return Promise.all(
+      Array.from(links).map(
+        (link) =>
+          new Promise((resolve, reject) => {
+            link.onload = resolve;
+            link.onerror = reject;
+          })
+      )
+    );
+  };
+
   const openModal = (modalObj) => {
     const { modal, body, url } = modalObj;
-    modal.classList.add("show");
-    document.body.classList.add("modal-open");
-    wrapperMain.classList.add("modal-open");
 
-    body.innerHTML = "";
+    // Start by preloading the modal's content and background image
+    body.innerHTML = ""; // Clear existing modal content
 
     fetch(url)
       .then((response) => response.text())
       .then((data) => {
         body.innerHTML = data;
 
+        // Preload background images from CSS if necessary
+        const backgroundImageUrls = [
+          'url("/media/mobile-video.webp")',
+          'url("/media/image-grid.webp")',
+          'url("/media/blocks-props.webp")',
+          'url("/media/color-picker.webp")',
+          'url("/media/header.webp")',
+          'url("/media/about.webp")',
+          'url("/media/jfamily.webp")',
+        ];
+
+        const backgroundPromises = backgroundImageUrls.map((bgUrl) => {
+          const url = bgUrl.replace(/url\(["']?([^"']*)["']?\)/, "$1");
+          return preloadBackgroundImage(url);
+        });
+
+        // Wait for all background images and stylesheets to load
+        return Promise.all(backgroundPromises);
+      })
+      .then(() => {
+        // Show the modal after everything is loaded
+        modal.classList.add("show");
+        document.body.classList.add("modal-open");
+        wrapperMain.classList.add("modal-open");
+
+        // Perform any additional setup (like navigation)
         if (modalObj === modals.work) {
           setupWorkNavigation();
         }
@@ -52,10 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const closeModal = (modal) => {
     if (modal) {
-      console.log("Closing modal:", modal); // Log the modal being closed
-      modal.classList.remove("show"); // Remove the 'show' class
-    } else {
-      console.error("Modal reference not found!");
+      modal.classList.remove("show");
     }
     document.body.classList.remove("modal-open");
     wrapperMain.classList.remove("modal-open");
@@ -65,18 +109,16 @@ document.addEventListener("DOMContentLoaded", () => {
     modalObj.openButtons.forEach((button) => {
       button.onclick = (event) => {
         event.preventDefault();
-        setTimeout(() => {
-          openModal(modalObj);
-        }, "500");
+        openModal(modalObj);
       };
     });
 
     modalObj.closeButton.onclick = () => {
-      closeModal(modalObj.modal); // Pass the correct modal to close
+      closeModal(modalObj.modal);
     };
 
     modalObj.homeButton.onclick = () => {
-      closeModal(modalObj.modal); // Pass the correct modal to close
+      closeModal(modalObj.modal);
       closeNav(); // Close the navigation
     };
   };
@@ -149,5 +191,10 @@ document.addEventListener("DOMContentLoaded", () => {
         target.style.display = "none";
       }
     }
+  });
+
+  // Ensure stylesheets are preloaded before setting up modal events
+  preloadStylesheets().then(() => {
+    Object.values(modals).forEach((modalObj) => setupModalButtons(modalObj));
   });
 });
