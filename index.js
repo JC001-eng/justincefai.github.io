@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
-  // Preload background image
   const preloadBackgroundImage = (url) => {
     return new Promise((resolve, reject) => {
       const img = new Image();
@@ -39,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Preload linked CSS files
   const preloadStylesheets = () => {
     const links = document.querySelectorAll('link[rel="stylesheet"]');
     return Promise.all(
@@ -56,15 +54,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const openModal = (modalObj) => {
     const { modal, body, url } = modalObj;
 
-    // Start by preloading the modal's content and background image
-    body.innerHTML = ""; // Clear existing modal content
+    body.innerHTML = "";
 
     fetch(url)
       .then((response) => response.text())
       .then((data) => {
         body.innerHTML = data;
 
-        // Preload background images from CSS if necessary
         const backgroundImageUrls = [
           'url("/media/mobile-video.webp")',
           'url("/media/image-grid.webp")',
@@ -80,16 +76,13 @@ document.addEventListener("DOMContentLoaded", () => {
           return preloadBackgroundImage(url);
         });
 
-        // Wait for all background images and stylesheets to load
         return Promise.all(backgroundPromises);
       })
       .then(() => {
-        // Show the modal after everything is loaded
         modal.classList.add("show");
         document.body.classList.add("modal-open");
         wrapperMain.classList.add("modal-open");
 
-        // Perform any additional setup (like navigation)
         if (modalObj === modals.work) {
           setupWorkNavigation();
         }
@@ -119,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     modalObj.homeButton.onclick = () => {
       closeModal(modalObj.modal);
-      closeNav(); // Close the navigation
+      closeNav();
     };
   };
 
@@ -193,7 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Ensure stylesheets are preloaded before setting up modal events
   preloadStylesheets().then(() => {
     Object.values(modals).forEach((modalObj) => setupModalButtons(modalObj));
   });
