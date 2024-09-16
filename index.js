@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       body: getById("workBody"),
       openButtons: [getById("openWork")],
       closeButton: getById("closeWork"),
-      homeButton: getById("workHomeButton"), // Use unique ID for home button
+      homeButton: getById("workHomeButton"),
       url: "/work/workV2.html",
     },
   };
@@ -62,20 +62,19 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const setupModalButtons = (modalObj) => {
-    // Open modal when any of the open buttons is clicked
     modalObj.openButtons.forEach((button) => {
       button.onclick = (event) => {
         event.preventDefault();
-        openModal(modalObj);
+        setTimeout(() => {
+          openModal(modalObj);
+        }, "500");
       };
     });
 
-    // Close modal when close button is clicked
     modalObj.closeButton.onclick = () => {
       closeModal(modalObj.modal); // Pass the correct modal to close
     };
 
-    // Close both modal and navigation when home button is clicked
     modalObj.homeButton.onclick = () => {
       closeModal(modalObj.modal); // Pass the correct modal to close
       closeNav(); // Close the navigation
