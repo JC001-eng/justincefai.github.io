@@ -383,24 +383,32 @@ button.nav-button .bar__bottom.close-bottom {
   }
 }
 
+.text-wrapper {
+  padding: 36px 24px;
+  border: 1px solid #333;
+}
+@media (min-width: 768px) {
+  .text-wrapper {
+    padding: 40px;
+  }
+}
+@media (min-width: 1224px) {
+  .text-wrapper {
+    max-width: 50vw;
+    padding: 50px;
+  }
+}
+
 p.centered {
   text-align: center;
   font-size: 1.3rem;
   line-height: 1.7;
   letter-spacing: 0.5px;
-  padding: 36px 24px;
-  border: 1px solid #333;
-}
-@media (min-width: 768px) {
-  p.centered {
-    padding: 40px;
-  }
+  padding: 0;
 }
 @media (min-width: 1224px) {
   p.centered {
-    max-width: 50vw;
     font-size: 1.8rem;
-    padding: 50px;
   }
 }
 p.centered a {
