@@ -190,6 +190,14 @@ a {
   padding: 20px;
   display: inline-block;
 }
+.nav-container nav.navigation .close {
+  display: block;
+  width: unset;
+  max-width: unset;
+  left: unset;
+  right: 4px;
+  top: 4px;
+}
 
 button.nav-button {
   position: absolute;
@@ -479,13 +487,13 @@ p.centered a:hover {
   }
 }
 
-.home {
+.close {
   display: block;
   position: absolute;
   cursor: pointer;
-  top: 14px;
-  left: 18px;
-  padding: 20px 30px 30px 20px;
+  top: 4px;
+  right: 4px;
+  padding: 20px;
   color: #000;
   font-size: 18px;
   font-weight: regular;
@@ -495,22 +503,11 @@ p.centered a:hover {
   background-color: #f8f8f6;
   -webkit-tap-highlight-color: transparent;
 }
-.home:active, .home:focus {
+.close:active, .close:focus {
   border: none;
   background-color: none;
 }
-@media (min-width: 768px) {
-  .home {
-    display: none;
-  }
-}
-@media (min-width: 1224px) {
-  .home {
-    top: 32px;
-    right: 32px;
-  }
-}
-.home .home-arrow {
+.close .home-arrow {
   width: 12px;
   height: 11px;
   display: inline-block;

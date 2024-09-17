@@ -7,24 +7,24 @@ document.addEventListener("DOMContentLoaded", () => {
       modal: getById("aboutModal"),
       body: getById("aboutBody"),
       openButtons: [getById("openAbout")],
-      closeButton: getById("closeAbout"),
-      homeButton: getById("aboutHomeButton"),
+      closeButton: getById("homeAbout"),
+      homeButton: getById("aboutCloseButton"),
       url: "/about/about.html",
     },
     contact: {
       modal: getById("contactModal"),
       body: getById("contactBody"),
       openButtons: [getById("openContact")],
-      closeButton: getById("closeContact"),
-      homeButton: getById("contactHomeButton"),
+      closeButton: getById("homeContact"),
+      homeButton: getById("contactCloseButton"),
       url: "/contact/contact.html",
     },
     work: {
       modal: getById("workModal"),
       body: getById("workBody"),
       openButtons: [getById("openWork")],
-      closeButton: getById("closeWork"),
-      homeButton: getById("workHomeButton"),
+      closeButton: getById("homeWork"),
+      homeButton: getById("workCloseButton"),
       url: "/work/workV2.html",
     },
   };
@@ -183,6 +183,19 @@ document.addEventListener("DOMContentLoaded", () => {
         content.classList.remove("line-clamp");
         target.style.display = "none";
       }
+    }
+
+    const anchor = document.getElementById("work-main");
+
+    const backToTopTarget = event.target.closest(
+      ".scroll-to-top, .scroll-to-top svg"
+    );
+
+    if (backToTopTarget) {
+      anchor.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   });
 

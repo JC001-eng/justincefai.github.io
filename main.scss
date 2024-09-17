@@ -229,6 +229,15 @@ a {
         display: inline-block;
       }
     }
+
+    .close {
+      display: block;
+      width: unset;
+      max-width: unset;
+      left: unset;
+      right: 4px;
+      top: 4px;
+    }
   }
 }
 
@@ -528,13 +537,13 @@ p.centered {
   }
 }
 
-.home {
+.close {
   display: block;
   position: absolute;
   cursor: pointer;
-  top: 14px;
-  left: 18px;
-  padding: 20px 30px 30px 20px;
+  top: 4px;
+  right: 4px;
+  padding: 20px;
   color: #000;
   font-size: 18px;
   font-weight: regular;
@@ -548,15 +557,6 @@ p.centered {
   &:focus {
     border: none;
     background-color: none;
-  }
-
-  @media (min-width: $tablet-min-width) {
-    display: none;
-  }
-
-  @media (min-width: $desktop-min-width) {
-    top: 32px;
-    right: 32px;
   }
 
   & .home-arrow {

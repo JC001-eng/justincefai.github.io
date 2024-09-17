@@ -386,3 +386,36 @@ $desktop-min-width: 1224px;
     overflow: hidden;
   }
 }
+
+.scroll-to-top {
+  position: relative;
+  z-index: 999999;
+  margin: -12px 36px 40px auto;
+  cursor: pointer;
+
+  @media (min-width: $desktop-min-width) {
+    margin: -24px 56px 36px auto;
+  }
+
+  @media (min-width: 1660px) {
+   margin-top: auto;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+  }
+
+  svg.arrow {
+    position: relative;
+    z-index: 999999;
+    width: 24px;
+    height: 24px;
+    transform: rotate(90deg);
+    pointer-events: all;
+  }
+}
