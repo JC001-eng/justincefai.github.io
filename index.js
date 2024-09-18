@@ -197,6 +197,13 @@ document.addEventListener("DOMContentLoaded", () => {
         block: "start",
       });
     }
+
+    const resume = document.getElementById("resume-wrapper");
+    const resumeBtn = event.target.closest("#resume-btn");
+    const closeResume = event.target.closest("#close-resume");
+
+    if (resumeBtn) resume.classList.add("visible");
+    if (closeResume) resume.classList.remove("visible");
   });
 
   preloadStylesheets().then(() => {

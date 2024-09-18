@@ -10,7 +10,7 @@
     <title></title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="/main.css" />
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -19,13 +19,46 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-    <div class="contact-wrapper">
-      <div class="text-wrapper">
-        <p class="centered">
-          Interested in working together? Let's talk! <br>
-          Feel free to reach out to me here:<br><a href="mailto:"><b class="email">cefaijustin@gmail.com</b></a>
-        </p>
+    <div class="contact-wrapper" id="contact-wrapper">
+      <div class="background-container">
+        <span class="background"></span>
+        <div class="text-wrapper">
+          <p class="centered">
+            Interested in working together? Let's talk! <br />
+            Feel free to reach out, or view my resume:<br />
+          </p>
+          <div class="contact-links">
+            <button>
+              <a href="mailto:cefaijustin@gmail.com">
+                <p class="email">email</p>
+              </a>
+            </button>
+            <button id="resume-btn">
+              <p class="email">resume</p>
+            </button>
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="resume-wrapper" id="resume-wrapper">
+      <span class="close" id="close-resume"
+      ><svg
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M24 8L8 24M8 8L24 24"
+          stroke="#1E1E1E"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </span>
+      <img src="/media/Justin_Cefai_Resume_2024.webp" alt="justin cefai resume">
     </div>
   </body>
 </html>

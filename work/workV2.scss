@@ -256,6 +256,7 @@ $desktop-min-width: 1224px;
           width: 100%;
           max-width: 360px;
           height: 0;
+          aspect-ratio: 1 / 1;
           padding-bottom: clamp(0px, 100%, 360px);
           background-size: cover;
           background-position: center;
