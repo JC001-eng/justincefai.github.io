@@ -29,15 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
-  const preloadBackgroundImage = (url) => {
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.src = url;
-      img.onload = resolve;
-      img.onerror = reject;
-    });
-  };
-
   const preloadStylesheets = () => {
     const links = document.querySelectorAll('link[rel="stylesheet"]');
     return Promise.all(
@@ -60,25 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => response.text())
       .then((data) => {
         body.innerHTML = data;
-
-        const backgroundImageUrls = [
-          'url("/media/mobile-video.webp")',
-          'url("/media/image-grid.webp")',
-          'url("/media/blocks-props.webp")',
-          'url("/media/color-picker.webp")',
-          'url("/media/header.webp")',
-          'url("/media/about.webp")',
-          'url("/media/jfamily.webp")',
-        ];
-
-        const backgroundPromises = backgroundImageUrls.map((bgUrl) => {
-          const url = bgUrl.replace(/url\(["']?([^"']*)["']?\)/, "$1");
-          return preloadBackgroundImage(url);
-        });
-
-        return Promise.all(backgroundPromises);
-      })
-      .then(() => {
         modal.classList.add("show");
         document.body.classList.add("modal-open");
         wrapperMain.classList.add("modal-open");
