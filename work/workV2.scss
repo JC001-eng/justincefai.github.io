@@ -251,44 +251,18 @@ $desktop-min-width: 1224px;
           flex: 1 1 calc(50% - 40px);
         }
 
-        .image-container {
+        .project-img {
           position: relative;
-          width: 100%;
-          max-width: 360px;
-          height: 0;
-          aspect-ratio: 1 / 1;
-          padding-bottom: clamp(0px, 100%, 360px);
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
+          width: clamp(0px, 100%, 360px);
+          max-width: 100%;
+          height: auto;
+          aspect-ratio: 1/1;
           margin: 0 auto 24px;
           border: 3px solid #e8e6e6;
           transition: all ease-in-out 150ms;
 
-          &__1 {
-            background-image: url("/media/mobile-video.webp");
-          }
-
-          &__2 {
-            background-image: url("/media/image-grid.webp");
-          }
-
-          &__3 {
-            background-image: url("/media/blocks-props.webp");
-            background-size: contain;
-            background-color: #fff;
-          }
-
-          &__4 {
-            background-image: url("/media/color-picker.webp");
-          }
-
-          &__5 {
-            background-image: url("/media/header.webp");
-          }
-
-          &__6 {
-            background-image: url("/media/about.webp");
+          &:hover {
+            opacity: 0.85;
           }
 
           @media (min-width: $tablet-min-width) {
@@ -297,21 +271,6 @@ $desktop-min-width: 1224px;
 
           @media (min-width: $desktop-min-width) {
             margin: 0 0 36px;
-          }
-
-          &:hover {
-            opacity: 0.85;
-          }
-
-          img {
-            margin: 0 auto;
-            cursor: pointer;
-            width: 100%;
-            max-width: 300px;
-
-            @media (min-width: $desktop-min-width) {
-              margin: 0;
-            }
           }
         }
 

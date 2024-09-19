@@ -239,62 +239,27 @@
     flex: 1 1 calc(50% - 40px);
   }
 }
-.main .projects-section .project-grid .project .image-container {
+.main .projects-section .project-grid .project .project-img {
   position: relative;
-  width: 100%;
-  max-width: 360px;
-  height: 0;
+  width: clamp(0px, 100%, 360px);
+  max-width: 100%;
+  height: auto;
   aspect-ratio: 1/1;
-  padding-bottom: clamp(0px, 100%, 360px);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   margin: 0 auto 24px;
   border: 3px solid #e8e6e6;
   transition: all ease-in-out 150ms;
 }
-.main .projects-section .project-grid .project .image-container__1 {
-  background-image: url("/media/mobile-video.webp");
-}
-.main .projects-section .project-grid .project .image-container__2 {
-  background-image: url("/media/image-grid.webp");
-}
-.main .projects-section .project-grid .project .image-container__3 {
-  background-image: url("/media/blocks-props.webp");
-  background-size: contain;
-  background-color: #fff;
-}
-.main .projects-section .project-grid .project .image-container__4 {
-  background-image: url("/media/color-picker.webp");
-}
-.main .projects-section .project-grid .project .image-container__5 {
-  background-image: url("/media/header.webp");
-}
-.main .projects-section .project-grid .project .image-container__6 {
-  background-image: url("/media/about.webp");
+.main .projects-section .project-grid .project .project-img:hover {
+  opacity: 0.85;
 }
 @media (min-width: 768px) {
-  .main .projects-section .project-grid .project .image-container {
+  .main .projects-section .project-grid .project .project-img {
     margin: 0 0 24px;
   }
 }
 @media (min-width: 1224px) {
-  .main .projects-section .project-grid .project .image-container {
+  .main .projects-section .project-grid .project .project-img {
     margin: 0 0 36px;
-  }
-}
-.main .projects-section .project-grid .project .image-container:hover {
-  opacity: 0.85;
-}
-.main .projects-section .project-grid .project .image-container img {
-  margin: 0 auto;
-  cursor: pointer;
-  width: 100%;
-  max-width: 300px;
-}
-@media (min-width: 1224px) {
-  .main .projects-section .project-grid .project .image-container img {
-    margin: 0;
   }
 }
 .main .projects-section .project-grid .project p {
