@@ -431,7 +431,7 @@ button.nav-button .bar__bottom.close-bottom {
   gap: 24px;
   margin: 40px auto 0;
 }
-@media (min-width: 768px) {
+@media (min-width: 1224px) {
   .contact-wrapper .background-container .contact-links {
     flex-direction: row;
     margin: 28px auto 0;

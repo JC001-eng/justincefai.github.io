@@ -480,7 +480,7 @@ button.nav-button {
       gap: 24px;
       margin: 40px auto 0;
     
-      @media (min-width: $tablet-min-width) {
+      @media (min-width: $desktop-min-width) {
         flex-direction: row;
         margin: 28px auto 0;
         gap: 30px;
