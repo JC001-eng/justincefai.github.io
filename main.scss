@@ -240,7 +240,7 @@ a {
 button.nav-button {
   position: absolute;
   top: 20px;
-  left: 30px;
+  left: 20px;
   z-index: 3;
   width: 80px;
   height: 80px;
@@ -252,6 +252,10 @@ button.nav-button {
   box-shadow: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+
+  svg {
+    height: 32px;
+  }
 
   &:active,
   &:focus {
@@ -535,16 +539,10 @@ p.centered {
 .socials {
   display: flex;
   position: absolute;
-  right: 40px;
-  bottom: 40px;
+  right: 30px;
+  bottom: 30px;
   z-index: 5;
-  gap: 10px;
   cursor: pointer;
-
-  @media (min-width: $tablet-min-width) {
-    right: 50px;
-    bottom: 30px;
-  }
 
   & svg {
     fill: #333;
@@ -554,6 +552,16 @@ p.centered {
 
     &:hover {
       fill: #111;
+    }
+  }
+
+  & a {
+    &:nth-of-type(1) {
+      padding: 10px 5px 10px 10px;
+    }
+
+    &:nth-of-type(2) {
+      padding: 10px 10px 10px 5px;
     }
   }
 }
