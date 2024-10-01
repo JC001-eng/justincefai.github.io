@@ -47,15 +47,12 @@ $desktop-min-width: 992px;
 
 .home {
   position: absolute;
-  display: grid;
+  display: block;
   cursor: pointer;
-  width: 100%;
+  width: auto;
   max-width: 130px;
-  grid-template-columns: auto 1fr;
-  gap: 5px;
-  justify-content: flex-start;
-  top: 14px;
-  left: 4px;
+  top: 11px;
+  left: 2px;
   padding: 20px;
   color: #000;
   font-size: 32px;
@@ -72,17 +69,22 @@ $desktop-min-width: 992px;
   }
 
   & .home-arrow {
-    width: 15px;
-    height: 11px;
+    width: 18px;
+    height: 18px;
     display: inline-block;
-    margin: -1px -4px 0 0;
+    margin: 0;
+
+    & path {
+      stroke-width: 8px;
+    }
   }
 
   & > p {
+    font-family: "Raleway", sans-serif;
     display: inline;
     color: #000;
     font-size: 18px;
-    font-weight: 100;
+    font-weight: 500;
   }
 }
 

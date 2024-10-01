@@ -104,6 +104,7 @@
 }
 .main h5 span {
   padding: 12px 12px 12px 0;
+  font-weight: 700;
 }
 .main span.break {
   display: block;
@@ -126,8 +127,9 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-  padding: 80px 0 0 0;
-  margin: 10px 0 14px 36px;
+  gap: 8px;
+  padding: 66px 0 0 0;
+  margin: 10px 0 14px 24px;
 }
 @media (min-width: 1224px) {
   .main nav.work-nav ul {
@@ -136,6 +138,7 @@
     margin: 80px 0 14px 60px;
     padding: 0;
     min-height: 230px;
+    gap: unset;
   }
 }
 .main nav.work-nav ul li {
@@ -203,7 +206,7 @@
   }
 }
 .main .projects-section {
-  margin: 0 36px 40px;
+  margin: 0 24px 40px;
 }
 @media (min-width: 1224px) {
   .main .projects-section {
@@ -351,6 +354,8 @@
   z-index: 999999;
   width: 24px;
   height: 24px;
-  transform: rotate(90deg);
   pointer-events: all;
+}
+.scroll-to-top svg.arrow path {
+  stroke-width: 8px;
 }/*# sourceMappingURL=workV2.css.map */

@@ -239,8 +239,8 @@ a {
 
 button.nav-button {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 16px;
+  left: 16px;
   z-index: 3;
   width: 80px;
   height: 80px;
@@ -381,8 +381,8 @@ button.nav-button {
 }
 
 .about-container {
-  margin: 80px auto 0;
-  padding: 0 36px;
+  margin: 66px auto 0;
+  padding: 0 24px;
   width: 100%;
   height: auto;
 
@@ -403,7 +403,7 @@ button.nav-button {
   & p {
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 600;
+    font-weight: 500;
     font-style: normal;
     font-size: 16px;
     margin: 0 auto;
@@ -427,7 +427,7 @@ button.nav-button {
   justify-content: center;
   height: 100%;
   margin: 0 auto;
-  padding: 0 36px;
+  padding: 0 24px;
 
   @media (min-width: $desktop-min-width) {
     height: calc(100vh - 80px);
@@ -539,8 +539,8 @@ p.centered {
 .socials {
   display: flex;
   position: absolute;
-  right: 30px;
-  bottom: 30px;
+  right: 26px;
+  bottom: 26px;
   z-index: 5;
   cursor: pointer;
 
@@ -609,7 +609,7 @@ p.centered {
   cursor: pointer;
   top: 4px;
   right: 4px;
-  padding: 20px;
+  padding: 20px 14px 20px 20px;
   color: #000;
   font-size: 18px;
   font-weight: regular;
@@ -618,6 +618,10 @@ p.centered {
   border-radius: 50%;
   background-color: #f8f8f6;
   -webkit-tap-highlight-color: transparent;
+
+  @media (min-width: $desktop-min-width) {
+    padding: 20px;
+  }
 
   &:active,
   &:focus {

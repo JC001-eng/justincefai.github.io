@@ -113,6 +113,7 @@ $desktop-min-width: 1224px;
 
     span {
       padding: 12px 12px 12px 0;
+      font-weight: 700;
     }
   }
 
@@ -137,8 +138,9 @@ $desktop-min-width: 1224px;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: flex-start;
-      padding: 80px 0 0 0;
-      margin: 10px 0 14px 36px;
+      gap: 8px;
+      padding: 66px 0 0 0;
+      margin: 10px 0 14px 24px;
 
       @media (min-width: $desktop-min-width) {
         position: fixed;
@@ -146,6 +148,7 @@ $desktop-min-width: 1224px;
         margin: 80px 0 14px 60px;
         padding: 0;
         min-height: 230px;
+        gap: unset;
       }
 
       li {
@@ -220,7 +223,7 @@ $desktop-min-width: 1224px;
   }
 
   .projects-section {
-    margin: 0 36px 40px;
+    margin: 0 24px 40px;
 
     @media (min-width: $desktop-min-width) {
       margin: 20px auto;
@@ -370,7 +373,10 @@ $desktop-min-width: 1224px;
     z-index: 999999;
     width: 24px;
     height: 24px;
-    transform: rotate(90deg);
     pointer-events: all;
+
+    path {
+      stroke-width: 8px;
+    }
   }
 }
