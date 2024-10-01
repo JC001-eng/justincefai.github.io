@@ -344,7 +344,7 @@ button.nav-button .bar__bottom.close-bottom {
   }
 }
 .about-container .copy {
-  margin: 40px auto;
+  margin: 24px auto 40px;
 }
 @media (min-width: 1224px) {
   .about-container .copy {
@@ -361,6 +361,12 @@ button.nav-button .bar__bottom.close-bottom {
   line-height: 1.5;
   letter-spacing: 0.5px;
   color: #000;
+}
+.about-container p span.large {
+  font-size: 36px;
+  display: block;
+  line-height: 1;
+  margin: 0 0 12px;
 }
 
 .img-med {

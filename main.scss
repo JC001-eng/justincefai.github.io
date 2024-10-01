@@ -393,7 +393,7 @@ button.nav-button {
   }
 
   .copy {
-    margin: 40px auto;
+    margin: 24px auto 40px;
 
     @media (min-width: $desktop-min-width) {
       margin: 50px auto;
@@ -410,6 +410,13 @@ button.nav-button {
     line-height: 1.5;
     letter-spacing: 0.5px;
     color: #000;
+
+    span.large {
+      font-size: 36px;
+      display: block;
+      line-height: 1;
+      margin: 0 0 12px;
+    }
   }
 }
 
