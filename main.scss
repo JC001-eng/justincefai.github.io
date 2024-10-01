@@ -211,7 +211,7 @@ a {
       li {
         cursor: pointer;
         font-size: 32px;
-        color: #000;
+        color: #111;
         text-transform: uppercase;
         transition: all ease-in-out 130ms;
 
@@ -255,6 +255,11 @@ button.nav-button {
 
   svg {
     height: 32px;
+    color: #111;
+
+    &:hover {
+      fill: #333;
+    }
   }
 
   &:active,
@@ -281,6 +286,8 @@ button.nav-button {
 }
 
 .title-container {
+  pointer-events: none;
+
   .title {
     position: fixed;
     top: 50%;
@@ -304,6 +311,7 @@ button.nav-button {
       width: 100%;
       margin: 0 auto;
       max-width: 620px;
+      color: #111;
 
       @media (orientation: landscape) and (max-width: 768px) and (max-height: 500px) {
         font-size: 6vw;
@@ -353,7 +361,7 @@ button.nav-button {
 
     & text {
       font-size: 29px;
-      fill: #111;
+      fill: #000;
       font-style: italic;
       font-weight: 100;
     }
@@ -409,13 +417,14 @@ button.nav-button {
     margin: 0 auto;
     line-height: 1.5;
     letter-spacing: 0.5px;
-    color: #000;
+    color: #111;
 
     span.large {
       font-size: 36px;
       display: block;
       line-height: 1;
       margin: 0 0 12px;
+      color: #000;
     }
   }
 }
@@ -552,13 +561,13 @@ p.centered {
   cursor: pointer;
 
   & svg {
-    fill: #333;
+    fill: #111;
     transition: ease-in-out 200ms;
     width: 32px;
     height: 32px;
 
     &:hover {
-      fill: #111;
+      fill: #333;
     }
   }
 
@@ -617,7 +626,7 @@ p.centered {
   top: 4px;
   right: 4px;
   padding: 20px 14px 20px 20px;
-  color: #000;
+  color: #111;
   font-size: 18px;
   font-weight: regular;
   line-height: 0.5;

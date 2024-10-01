@@ -39,6 +39,7 @@ $desktop-min-width: 1224px;
     font-size: 24px;
     line-height: 1;
     letter-spacing: 1px;
+    color: #111;
 
     @media (min-width: $desktop-min-width) {
       font-size: 24px;
@@ -167,7 +168,7 @@ $desktop-min-width: 1224px;
           color: #909090;
 
           &.active {
-            color: #000;
+            color: #111;
           }
 
           &:hover {
@@ -207,7 +208,7 @@ $desktop-min-width: 1224px;
     }
 
     p {
-      color: #000;
+      color: #111;
       padding: 44px 0 42px;
       font-size: 18px;
       line-height: 1.4;
@@ -326,6 +327,7 @@ $desktop-min-width: 1224px;
 
       h2 {
         margin: 24px 0 8px;
+        color: #111;
       }
 
       p {

@@ -38,6 +38,7 @@
   font-size: 24px;
   line-height: 1;
   letter-spacing: 1px;
+  color: #111;
 }
 @media (min-width: 1224px) {
   .main h2 {
@@ -156,7 +157,7 @@
   color: #909090;
 }
 .main nav.work-nav ul li a.active {
-  color: #000;
+  color: #111;
 }
 .main nav.work-nav ul li a:hover {
   transform: none;
@@ -191,7 +192,7 @@
   }
 }
 .main .intro p {
-  color: #000;
+  color: #111;
   padding: 44px 0 42px;
   font-size: 18px;
   line-height: 1.4;
@@ -311,6 +312,7 @@
 }
 .main .testimonials-section .testimonial h2 {
   margin: 24px 0 8px;
+  color: #111;
 }
 .main .testimonials-section .testimonial p {
   font-size: 16px;
