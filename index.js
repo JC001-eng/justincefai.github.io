@@ -44,21 +44,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const openModal = (modalObj) => {
     const { modal, body, url } = modalObj;
-  
+
     body.innerHTML = "";
-  
+
     fetch(url)
       .then((response) => response.text())
       .then((data) => {
         body.innerHTML = data;
-  
+
         const tempDiv = document.createElement("div");
         tempDiv.innerHTML = data;
-        const newStylesheets = tempDiv.querySelectorAll('link[rel="stylesheet"]');
-  
+        const newStylesheets = tempDiv.querySelectorAll(
+          'link[rel="stylesheet"]'
+        );
+
         const promises = Array.from(newStylesheets).map((link) => {
           if (!document.head.querySelector(`link[href="${link.href}"]`)) {
-            const newLink = document.createElement('link');
+            const newLink = document.createElement("link");
             newLink.rel = "stylesheet";
             newLink.href = link.href;
             document.head.appendChild(newLink);
@@ -69,20 +71,21 @@ document.addEventListener("DOMContentLoaded", () => {
           }
           return Promise.resolve();
         });
-  
-        Promise.all(promises).then(() => {
-          modal.classList.add("show");
-          document.body.classList.add("modal-open");
-          wrapperMain.classList.add("modal-open");
-  
-          if (modalObj === modals.work) {
-            setupWorkNavigation();
-          }
-        }).catch((error) => console.error('Stylesheet loading error:', error));
+
+        Promise.all(promises)
+          .then(() => {
+            modal.classList.add("show");
+            document.body.classList.add("modal-open");
+            wrapperMain.classList.add("modal-open");
+
+            if (modalObj === modals.work) {
+              setupWorkNavigation();
+            }
+          })
+          .catch((error) => console.error("Stylesheet loading error:", error));
       })
       .catch((error) => console.error(`Error loading ${url}:`, error));
   };
-  
 
   const closeModal = (modal) => {
     if (modal) {

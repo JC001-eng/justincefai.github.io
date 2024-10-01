@@ -263,12 +263,11 @@
   }
 }
 .main .projects-section .project-grid .project p {
-  font-size: 18px;
+  font-size: 16px;
   margin: 0 0 10px;
 }
 @media (min-width: 1224px) {
   .main .projects-section .project-grid .project p {
-    font-size: 14px;
     margin: 0 0 16px;
   }
 }
@@ -312,13 +311,8 @@
   margin: 24px 0 8px;
 }
 .main .testimonials-section .testimonial p {
-  font-size: 18px;
+  font-size: 16px;
   margin: 8px 0 0;
-}
-@media (min-width: 1224px) {
-  .main .testimonials-section .testimonial p {
-    font-size: 14px;
-  }
 }
 .main .line-clamp {
   display: -webkit-box;
