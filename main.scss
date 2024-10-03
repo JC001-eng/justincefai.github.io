@@ -259,6 +259,18 @@ button.nav-button {
 
     &:hover {
       fill: #333;
+
+      .bar {
+        transition: all ease-in-out 150ms;
+
+        &__top {
+          transform: translateY(3px);
+        }
+
+        &__bottom {
+          transform: translateY(-3px);
+        }
+      }
     }
   }
 
@@ -266,22 +278,6 @@ button.nav-button {
   &:focus {
     outline: none;
     background-color: none;
-  }
-
-  .bar {
-    transition: all ease-in-out 200ms;
-
-    &__top {
-      &.close-top {
-        display: none;
-      }
-    }
-
-    &__bottom {
-      &.close-bottom {
-        display: none;
-      }
-    }
   }
 }
 
@@ -499,19 +495,19 @@ button.nav-button {
       max-width: 250px;
       gap: 24px;
       margin: 40px auto 0;
-    
+
       @media (min-width: $desktop-min-width) {
         flex-direction: row;
         margin: 28px auto 0;
         gap: 30px;
       }
-    
+
       button {
         border: 1px solid #111;
         background-color: #fff;
         cursor: pointer;
         transition: all ease-in-out 150ms;
-    
+
         &:hover {
           background-color: #f8f8f6;
         }
@@ -625,7 +621,7 @@ p.centered {
   cursor: pointer;
   top: 4px;
   right: 4px;
-  padding: 20px 14px 20px 20px;
+  padding: 12px;
   color: #111;
   font-size: 18px;
   font-weight: regular;
@@ -634,6 +630,7 @@ p.centered {
   border-radius: 50%;
   background-color: #f8f8f6;
   -webkit-tap-highlight-color: transparent;
+  transition: top 0.5s ease;
 
   @media (min-width: $desktop-min-width) {
     padding: 20px;
@@ -650,6 +647,16 @@ p.centered {
     height: 11px;
     display: inline-block;
     margin: 0 2px 0 0;
+  }
+
+  &.fixed {
+    position: fixed;
+    transition: top 0.5s ease;
+  }
+
+  &.hidden {
+    top: -100px;
+    transition: top 0.5s ease;
   }
 }
 

@@ -353,8 +353,8 @@
 .scroll-to-top svg.arrow {
   position: relative;
   z-index: 999999;
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   pointer-events: all;
 }
 .scroll-to-top svg.arrow path {

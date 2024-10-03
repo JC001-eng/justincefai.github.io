@@ -218,18 +218,18 @@ button.nav-button svg {
 button.nav-button svg:hover {
   fill: #333;
 }
+button.nav-button svg:hover .bar {
+  transition: all ease-in-out 150ms;
+}
+button.nav-button svg:hover .bar__top {
+  transform: translateY(3px);
+}
+button.nav-button svg:hover .bar__bottom {
+  transform: translateY(-3px);
+}
 button.nav-button:active, button.nav-button:focus {
   outline: none;
   background-color: none;
-}
-button.nav-button .bar {
-  transition: all ease-in-out 200ms;
-}
-button.nav-button .bar__top.close-top {
-  display: none;
-}
-button.nav-button .bar__bottom.close-bottom {
-  display: none;
 }
 
 .title-container {
@@ -562,7 +562,7 @@ p.centered a:hover {
   cursor: pointer;
   top: 4px;
   right: 4px;
-  padding: 20px 14px 20px 20px;
+  padding: 12px;
   color: #111;
   font-size: 18px;
   font-weight: regular;
@@ -571,6 +571,7 @@ p.centered a:hover {
   border-radius: 50%;
   background-color: #f8f8f6;
   -webkit-tap-highlight-color: transparent;
+  transition: top 0.5s ease;
 }
 @media (min-width: 1224px) {
   .close {
@@ -586,6 +587,14 @@ p.centered a:hover {
   height: 11px;
   display: inline-block;
   margin: 0 2px 0 0;
+}
+.close.fixed {
+  position: fixed;
+  transition: top 0.5s ease;
+}
+.close.hidden {
+  top: -100px;
+  transition: top 0.5s ease;
 }
 
 .resume-wrapper {

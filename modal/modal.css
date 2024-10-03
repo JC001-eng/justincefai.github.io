@@ -49,9 +49,9 @@
   cursor: pointer;
   width: auto;
   max-width: 130px;
-  top: 11px;
-  left: 2px;
-  padding: 20px;
+  top: 4px;
+  left: 0;
+  padding: 12px 19px 17px 17px;
   color: #111;
   font-size: 32px;
   font-weight: bold;
@@ -60,14 +60,21 @@
   border-radius: 50%;
   background-color: #f8f8f6;
   -webkit-tap-highlight-color: transparent;
+  transition: top 0.5s ease;
+}
+@media (min-width: 992px) {
+  .home {
+    top: 12px;
+    left: 12px;
+  }
 }
 .home:active, .home:focus {
   border: none;
   background-color: none;
 }
 .home .home-arrow {
-  width: 18px;
-  height: 18px;
+  width: 12px;
+  height: 12px;
   display: inline-block;
   margin: 0;
 }
@@ -80,6 +87,14 @@
   color: #000;
   font-size: 18px;
   font-weight: 500;
+}
+.home.fixed {
+  position: fixed;
+  transition: top 0.5s ease;
+}
+.home.hidden {
+  top: -100px;
+  transition: top 0.5s ease;
 }
 
 .close:hover,
