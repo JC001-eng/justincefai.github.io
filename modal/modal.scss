@@ -15,7 +15,7 @@ $desktop-min-width: 992px;
   &.show {
     visibility: visible;
     opacity: 1;
-    transition: opacity 0.4s ease; 
+    transition: opacity 0.4s ease;
   }
 }
 
@@ -43,6 +43,13 @@ $desktop-min-width: 992px;
   @media (min-width: $desktop-min-width) {
     min-height: 100%;
   }
+
+  .button-wrapper {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 56px;
+  }
 }
 
 .home {
@@ -69,7 +76,8 @@ $desktop-min-width: 992px;
     left: 12px;
   }
 
-  &:active, &:focus {
+  &:active,
+  &:focus {
     border: none;
     background-color: none;
   }

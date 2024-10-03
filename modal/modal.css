@@ -42,6 +42,12 @@
     min-height: 100%;
   }
 }
+.modal-content .button-wrapper {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 56px;
+}
 
 .home {
   position: absolute;

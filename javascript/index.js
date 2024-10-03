@@ -203,6 +203,37 @@ document.addEventListener("DOMContentLoaded", () => {
     if (closeResume) resume.classList.remove("visible");
   });
 
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let touchStartY = 0;
+  let touchEndY = 0;
+
+  const minSwipeDistanceX = 80;
+  const maxVerticalSwipeDistance = 50;
+
+  const handleSwipe = () => {
+    const horizontalSwipeDistance = touchEndX - touchStartX;
+    const verticalSwipeDistance = Math.abs(touchEndY - touchStartY);
+
+    if (
+      horizontalSwipeDistance > minSwipeDistanceX &&
+      verticalSwipeDistance < maxVerticalSwipeDistance
+    ) {
+      Object.values(modals).forEach((modalObj) => closeModal(modalObj.modal));
+    }
+  };
+
+  window.addEventListener("touchstart", (event) => {
+    touchStartX = event.changedTouches[0].screenX;
+    touchStartY = event.changedTouches[0].screenY;
+  });
+
+  window.addEventListener("touchend", (event) => {
+    touchEndX = event.changedTouches[0].screenX;
+    touchEndY = event.changedTouches[0].screenY;
+    handleSwipe();
+  });
+
   preloadStylesheets().then(() => {
     Object.values(modals).forEach((modalObj) => setupModalButtons(modalObj));
   });
