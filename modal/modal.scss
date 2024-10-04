@@ -1,4 +1,5 @@
 $desktop-min-width: 992px;
+$large-desktop-min-width: 1224px;
 
 .modal {
   position: fixed;
@@ -71,7 +72,7 @@ $desktop-min-width: 992px;
   -webkit-tap-highlight-color: transparent;
   transition: top 0.5s ease;
 
-  @media (min-width: $desktop-min-width) {
+  @media (min-width: $large-desktop-min-width) {
     top: 12px;
     left: 12px;
   }
