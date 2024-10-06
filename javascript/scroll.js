@@ -32,4 +32,26 @@ document.addEventListener("DOMContentLoaded", () => {
       ticking = true;
     }
   });
+
+  const invertButton = document.getElementById("darkMode");
+
+  const toggleInvertFilter = () => {
+    const htmlElement = document.documentElement;
+    const prefersDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    const isInverted = htmlElement.style.filter === "invert(0.95)";
+
+    if (prefersDarkMode) {
+      return htmlElement.style.filter === "invert(0)"
+        ? (htmlElement.style.filter = "invert(0.95)")
+        : (htmlElement.style.filter = "invert(0)");
+    } else {
+      return !!isInverted
+        ? (htmlElement.style.filter = "invert(0)")
+        : (htmlElement.style.filter = "invert(0.95)");
+    }
+  };
+
+  invertButton.addEventListener("click", toggleInvertFilter);
 });

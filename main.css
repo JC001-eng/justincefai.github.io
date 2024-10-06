@@ -4,6 +4,11 @@
   font-weight: normal;
   font-style: normal;
 }
+@media (prefers-color-scheme: dark) {
+  html {
+    filter: invert(0.95);
+  }
+}
 *,
 *::before,
 *::after {
@@ -18,6 +23,8 @@ html {
   font-size: 14px;
   scroll-behavior: smooth;
   height: 100%;
+  background-color: #fff;
+  transition: all ease-in-out 250ms;
 }
 
 body {
@@ -216,7 +223,7 @@ button.nav-button svg {
   color: #111;
 }
 button.nav-button svg:hover {
-  fill: #333;
+  filter: invert(0.2);
 }
 button.nav-button svg:hover .bar {
   transition: all ease-in-out 150ms;
@@ -493,9 +500,6 @@ p.centered a {
   transition: all ease-in-out 100ms;
   text-decoration: underline;
 }
-p.centered a:hover {
-  color: #111;
-}
 
 .socials {
   display: flex;
@@ -512,7 +516,7 @@ p.centered a:hover {
   height: 32px;
 }
 .socials svg:hover {
-  fill: #333;
+  filter: invert(0.2);
 }
 .socials a:nth-of-type(1) {
   padding: 10px 5px 10px 10px;
@@ -633,4 +637,31 @@ p.centered a:hover {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+button#darkMode {
+  width: 54px;
+  height: 54px;
+  padding: 10px;
+  position: absolute;
+  top: 25px;
+  right: 22px;
+  background-color: transparent;
+  border: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  z-index: 4;
+  transform: rotate(45deg);
+  transition: all ease-in-out 200ms;
+}
+button#darkMode:hover {
+  filter: invert(0.2);
+}
+button#darkMode svg {
+  width: 32px;
+  height: 32px;
+  fill: #111;
+}
+button#darkMode svg path {
+  fill: #111;
 }/*# sourceMappingURL=main.css.map */

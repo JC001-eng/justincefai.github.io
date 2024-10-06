@@ -72,6 +72,40 @@ document.addEventListener("DOMContentLoaded", () => {
           return Promise.resolve();
         });
 
+        const nonInvertItems = [
+          ...document.getElementsByClassName("img-med"),
+          ...document.getElementsByClassName("project-img"),
+          ...document.getElementsByClassName("hand"),
+        ];
+
+        const prefersDarkMode = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (prefersDarkMode) {
+          if (document.documentElement.style.filter === "invert(0)") {
+            nonInvertItems.map((item) => {
+              if (item !== undefined) {
+                item.style.filter = "invert(0)";
+              }
+            });
+          } else {
+            nonInvertItems.map((item) => {
+              if (item !== undefined) {
+                item.style.filter = "invert(1)";
+              }
+            });
+          }
+        } else {
+          if (document.documentElement.style.filter === "invert(0.95)") {
+            nonInvertItems.map((item) => {
+              if (item !== undefined) {
+                item.style.filter = "invert(1)";
+              }
+            });
+          }
+        }
+
         Promise.all(promises)
           .then(() => {
             modal.classList.add("show");
