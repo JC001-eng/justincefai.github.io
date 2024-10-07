@@ -108,11 +108,17 @@ a {
 }
 .wrapper__main {
   margin: 0 auto;
+  padding: 20px;
   height: 100%;
 }
 @media (min-width: 280px) {
   .wrapper__main.modal-open {
     display: none;
+  }
+}
+@media (min-width: 1224px) {
+  .wrapper__main {
+    padding: 24px 28px;
   }
 }
 .wrapper__bg::before {
@@ -186,8 +192,10 @@ a {
   text-transform: uppercase;
   transition: all ease-in-out 130ms;
 }
-.nav-container nav.navigation ul li:hover {
-  color: #909090;
+@media (min-width: 1224px) {
+  .nav-container nav.navigation ul li:hover {
+    color: #909090;
+  }
 }
 .nav-container nav.navigation ul a {
   padding: 20px;
@@ -204,12 +212,12 @@ a {
 
 button.nav-button {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 0;
+  left: 0;
   z-index: 3;
-  width: 80px;
-  height: 80px;
-  padding: 20px;
+  width: 60px;
+  height: auto;
+  padding: 10px;
   background-color: none;
   border: none;
   background: none;
@@ -222,8 +230,10 @@ button.nav-button svg {
   height: 32px;
   color: #111;
 }
-button.nav-button svg:hover {
-  filter: invert(0.2);
+@media (min-width: 1224px) {
+  button.nav-button svg:hover {
+    filter: invert(0.2);
+  }
 }
 button.nav-button svg:hover .bar {
   transition: all ease-in-out 150ms;
@@ -469,8 +479,10 @@ button.nav-button:active, button.nav-button:focus {
   cursor: pointer;
   transition: all ease-in-out 150ms;
 }
-.contact-wrapper .background-container .contact-links button:hover {
-  background-color: #f8f8f6;
+@media (min-width: 1224px) {
+  .contact-wrapper .background-container .contact-links button:hover {
+    background-color: #f8f8f6;
+  }
 }
 .contact-wrapper .background-container .contact-links button .email {
   overflow-wrap: anywhere;
@@ -504,25 +516,27 @@ p.centered a {
 .socials {
   display: flex;
   position: absolute;
-  right: 26px;
-  bottom: 26px;
+  right: 0;
+  bottom: 0;
   z-index: 5;
   cursor: pointer;
 }
 .socials svg {
   fill: #111;
   transition: ease-in-out 200ms;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
 }
-.socials svg:hover {
-  filter: invert(0.2);
+@media (min-width: 1224px) {
+  .socials svg:hover {
+    filter: invert(0.2);
+  }
 }
 .socials a:nth-of-type(1) {
-  padding: 10px 5px 10px 10px;
+  padding: 10px 8px 10px 10px;
 }
 .socials a:nth-of-type(2) {
-  padding: 10px 10px 10px 5px;
+  padding: 10px 10px 10px 8px;
 }
 
 .hidden p {
@@ -640,12 +654,12 @@ p.centered a {
 }
 
 button#darkMode {
-  width: 54px;
-  height: 54px;
+  width: 60px;
+  height: 60px;
   padding: 10px;
   position: absolute;
-  top: 25px;
-  right: 22px;
+  top: -4px;
+  right: -4px;
   background-color: transparent;
   border: transparent;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
@@ -654,12 +668,14 @@ button#darkMode {
   transform: rotate(45deg);
   transition: all ease-in-out 200ms;
 }
-button#darkMode:hover {
-  filter: invert(0.2);
+@media (min-width: 1224px) {
+  button#darkMode:hover {
+    filter: invert(0.2);
+  }
 }
 button#darkMode svg {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   fill: #111;
 }
 button#darkMode svg path {

@@ -80,15 +80,14 @@
   line-height: 0.57;
   vertical-align: middle;
   margin: 0 0 0 6px;
-  color: red;
-  opacity: 0;
-  transition: all ease-in-out 150ms;
+  color: orangered;
+  visibility: hidden;
+  transition: visibility ease-in-out 150ms;
 }
-.main h4 a:hover {
-  color: red;
-}
-.main h4 a:hover span.bullet {
-  opacity: 1;
+@media (min-width: 1224px) {
+  .main h4 a:hover span.bullet {
+    visibility: visible;
+  }
 }
 .main h5 {
   margin: 8px 0 0;
@@ -252,8 +251,10 @@
   border: 3px solid #e8e6e6;
   transition: all ease-in-out 150ms;
 }
-.main .projects-section .project-grid .project .project-img:hover {
-  opacity: 0.85;
+@media (min-width: 1224px) {
+  .main .projects-section .project-grid .project .project-img:hover {
+    opacity: 0.85;
+  }
 }
 @media (min-width: 768px) {
   .main .projects-section .project-grid .project .project-img {

@@ -142,12 +142,17 @@ a {
 
   &__main {
     margin: 0 auto;
+    padding: 20px;
     height: 100%;
 
     @media (min-width: 280px) {
       &.modal-open {
         display: none;
       }
+    }
+
+    @media (min-width: $desktop-min-width) {
+      padding: 24px 28px;
     }
   }
 
@@ -223,8 +228,10 @@ a {
         text-transform: uppercase;
         transition: all ease-in-out 130ms;
 
-        &:hover {
-          color: #909090;
+        @media (min-width: $desktop-min-width) {
+          &:hover {
+            color: #909090;
+          }
         }
       }
 
@@ -247,12 +254,12 @@ a {
 
 button.nav-button {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 0;
+  left: 0;
   z-index: 3;
-  width: 80px;
-  height: 80px;
-  padding: 20px;
+  width: 60px;
+  height: auto;
+  padding: 10px;
   background-color: none;
   border: none;
   background: none;
@@ -266,7 +273,9 @@ button.nav-button {
     color: #111;
 
     &:hover {
-      filter: invert(0.2);
+      @media (min-width: $desktop-min-width) {
+        filter: invert(0.2);
+      }
 
       .bar {
         transition: all ease-in-out 150ms;
@@ -516,8 +525,10 @@ button.nav-button {
         cursor: pointer;
         transition: all ease-in-out 150ms;
 
-        &:hover {
-          background-color: #f8f8f6;
+        @media (min-width: $desktop-min-width) {
+          &:hover {
+            background-color: #f8f8f6;
+          }
         }
 
         .email {
@@ -555,29 +566,31 @@ p.centered {
 .socials {
   display: flex;
   position: absolute;
-  right: 26px;
-  bottom: 26px;
+  right: 0;
+  bottom: 0;
   z-index: 5;
   cursor: pointer;
 
   & svg {
     fill: #111;
     transition: ease-in-out 200ms;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
 
-    &:hover {
-      filter: invert(0.2);
+    @media (min-width: $desktop-min-width) {
+      &:hover {
+        filter: invert(0.2);
+      }
     }
   }
 
   & a {
     &:nth-of-type(1) {
-      padding: 10px 5px 10px 10px;
+      padding: 10px 8px 10px 10px;
     }
 
     &:nth-of-type(2) {
-      padding: 10px 10px 10px 5px;
+      padding: 10px 10px 10px 8px;
     }
   }
 }
@@ -705,12 +718,12 @@ p.centered {
 }
 
 button#darkMode {
-  width: 54px;
-  height: 54px;
+  width: 60px;
+  height: 60px;
   padding: 10px;
   position: absolute;
-  top: 25px;
-  right: 22px;
+  top: -4px;
+  right: -4px;
   background-color: transparent;
   border: transparent;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
@@ -719,13 +732,15 @@ button#darkMode {
   transform: rotate(45deg);
   transition: all ease-in-out 200ms;
 
-  &:hover {
-    filter: invert(0.2);
+  @media (min-width: $desktop-min-width) {
+    &:hover {
+      filter: invert(0.2);
+    }
   }
 
   svg {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     fill: #111;
 
     path {

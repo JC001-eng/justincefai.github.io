@@ -83,16 +83,16 @@ $desktop-min-width: 1224px;
         line-height: 0.57;
         vertical-align: middle;
         margin: 0 0 0 6px;
-        color: red;
-        opacity: 0;
-        transition: all ease-in-out 150ms;
+        color: orangered;
+        visibility: hidden;
+        transition: visibility ease-in-out 150ms;
       }
 
-      &:hover {
-        color: red;
-
-        & span.bullet {
-          opacity: 1;
+      @media (min-width: $desktop-min-width) {
+        &:hover {
+          span.bullet {
+            visibility: visible;
+          }
         }
       }
     }
@@ -264,8 +264,10 @@ $desktop-min-width: 1224px;
           border: 3px solid #e8e6e6;
           transition: all ease-in-out 150ms;
 
-          &:hover {
-            opacity: 0.85;
+          @media (min-width: $desktop-min-width) {
+            &:hover {
+              opacity: 0.85;
+            }
           }
 
           @media (min-width: $tablet-min-width) {

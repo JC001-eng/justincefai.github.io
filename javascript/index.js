@@ -76,6 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
           ...document.getElementsByClassName("img-med"),
           ...document.getElementsByClassName("project-img"),
           ...document.getElementsByClassName("hand"),
+          ...document.getElementsByClassName("anchor-link"),
+          document.getElementById("resume-wrapper"),
         ];
 
         const prefersDarkMode = window.matchMedia(
@@ -85,13 +87,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (prefersDarkMode) {
           if (document.documentElement.style.filter === "invert(0)") {
             nonInvertItems.map((item) => {
-              if (item !== undefined) {
+              if (!!item) {
                 item.style.filter = "invert(0)";
               }
             });
           } else {
             nonInvertItems.map((item) => {
-              if (item !== undefined) {
+              if (!!item) {
                 item.style.filter = "invert(1)";
               }
             });
@@ -99,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           if (document.documentElement.style.filter === "invert(0.95)") {
             nonInvertItems.map((item) => {
-              if (item !== undefined) {
+              if (!!item) {
                 item.style.filter = "invert(1)";
               }
             });
@@ -232,8 +234,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const resume = document.getElementById("resume-wrapper");
     const resumeBtn = event.target.closest("#resume-btn");
     const closeResume = event.target.closest("#close-resume");
+    const resumeDocument = document.getElementsByClassName("resume")[0];
 
-    if (resumeBtn) resume.classList.add("visible");
+    if (resumeBtn) {
+      resume.classList.add("visible");
+      resumeDocument.style.filter = "invert(0)";
+    }
     if (closeResume) resume.classList.remove("visible");
   });
 
