@@ -62,30 +62,34 @@
   font-style: normal;
   margin: 0 auto;
 }
-.main h4.link {
+.main button.link {
   margin: 8px 0 4px;
+  border: none;
+  padding: 0;
+  background-color: transparent;
 }
-.main h4 a {
-  color: orangered;
+.main button a {
+  color: rgb(241, 76, 16);
   padding: 10px 0;
   font-size: 18px;
+  letter-spacing: 0.8px;
 }
 @media (min-width: 1224px) {
-  .main h4 a {
-    font-size: 14px;
+  .main button a {
+    font-size: 16px;
   }
 }
-.main h4 a span.bullet {
+.main button a span.bullet {
   font-size: 34px;
-  line-height: 0.57;
+  line-height: 0.97;
   vertical-align: middle;
   margin: 0 0 0 6px;
-  color: orangered;
+  color: rgb(241, 76, 16);
   visibility: hidden;
   transition: visibility ease-in-out 150ms;
 }
 @media (min-width: 1224px) {
-  .main h4 a:hover span.bullet {
+  .main button a:hover span.bullet {
     visibility: visible;
   }
 }
@@ -272,7 +276,7 @@
 }
 @media (min-width: 1224px) {
   .main .projects-section .project-grid .project p {
-    margin: 0 0 16px;
+    margin: 0 0 6px;
   }
 }
 .main .testimonials-section {
