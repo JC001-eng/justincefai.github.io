@@ -3,6 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
   let lastScrollPosition = 0;
   const modal = document.getElementById("workModal");
   const modalBottom = window.scrollY;
+  const nameSvg = [...document.getElementsByClassName("name-svg")];
+  const titleSvg = document.getElementById("title-svg");
+
+  const showTitle = () => {
+    nameSvg.map((svg) => svg.classList.add("animate"));
+
+    setTimeout(() => {
+      nameSvg.map((svg) => svg.classList.add("filled"));
+      titleSvg.classList.add("svg-show");
+    }, 2750);
+  };
+
+  showTitle();
 
   const handleScroll = (modal) => {
     const scrollPosition = modal.scrollTop;

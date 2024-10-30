@@ -123,12 +123,15 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => console.error(`Error loading ${url}:`, error));
   };
 
+  const nameSvg = [...document.getElementsByClassName("name-svg")];
+
   const closeModal = (modal) => {
     if (modal) {
       modal.classList.remove("show");
     }
     document.body.classList.remove("modal-open");
     wrapperMain.classList.remove("modal-open");
+    nameSvg.map((svg) => svg.classList.add("post-animate"));
   };
 
   const setupModalButtons = (modalObj) => {

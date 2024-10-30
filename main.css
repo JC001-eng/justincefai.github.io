@@ -95,6 +95,11 @@ a {
     opacity: 1;
   }
 }
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 .wrapper__content {
   display: flex;
   justify-content: center;
@@ -135,14 +140,7 @@ a {
   filter: blur(3rem) brightness(135%);
   opacity: 0.4;
   z-index: 1;
-  animation: rotating 30s linear infinite;
 }
-@media (min-width: 768px) {
-  .wrapper__bg::before {
-    animation: rotating 45s linear infinite;
-  }
-}
-
 .nav-container {
   width: -moz-fit-content;
   width: fit-content;
@@ -229,6 +227,7 @@ button.nav-button {
 button.nav-button svg {
   height: 32px;
   color: #111;
+  cursor: pointer;
 }
 @media (min-width: 1224px) {
   button.nav-button svg:hover {
@@ -249,16 +248,13 @@ button.nav-button:active, button.nav-button:focus {
   background-color: none;
 }
 
-.title-container {
-  pointer-events: none;
-}
 .title-container .title {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-54%, -50%);
-  width: 100%;
-  max-width: 72vw;
+  transform: translate(-50%, -50%);
+  width: clamp(0px, 86vw, 900px);
+  max-width: 100%;
   z-index: 1;
 }
 @media (orientation: landscape) and (max-width: 768px) and (max-height: 500px) {
@@ -266,9 +262,9 @@ button.nav-button:active, button.nav-button:focus {
     max-width: 34vw;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1224px) {
   .title-container .title {
-    max-width: 42rem;
+    max-width: 70vw;
   }
 }
 .title-container .title h1 {
@@ -276,7 +272,6 @@ button.nav-button:active, button.nav-button:focus {
   display: grid;
   width: 100%;
   margin: 0 auto;
-  max-width: 620px;
   color: #111;
 }
 @media (orientation: landscape) and (max-width: 768px) and (max-height: 500px) {
@@ -286,7 +281,7 @@ button.nav-button:active, button.nav-button:focus {
 }
 @media (min-width: 768px) {
   .title-container .title h1 {
-    font-size: 8.2rem;
+    font-size: 9.5rem;
   }
 }
 .title-container .title h1 span {
@@ -297,6 +292,20 @@ button.nav-button:active, button.nav-button:focus {
 .title-container .title h1 span.last {
   justify-self: flex-end;
 }
+.title-container .title svg {
+  position: relative;
+  width: 100%;
+  height: auto;
+  z-index: 999999;
+  transition: all ease-in-out 200ms;
+}
+.title-container .title svg > path.name-svg {
+  fill: rgba(0, 0, 0, 0);
+}
+.title-container .title svg #title-svg {
+  opacity: 0;
+  transition: all ease-in-out 200ms;
+}
 
 .svg-container {
   position: relative;
@@ -306,6 +315,8 @@ button.nav-button:active, button.nav-button:focus {
   justify-content: center;
   align-items: center;
   transform: translate(7.5%, -17.5%);
+  transition: all ease-in-out 1000ms;
+  opacity: 0;
 }
 @media (orientation: landscape) and (max-width: 768px) and (max-height: 500px) {
   .svg-container {
@@ -314,11 +325,11 @@ button.nav-button:active, button.nav-button:focus {
 }
 @media (min-width: 768px) {
   .svg-container {
-    transform: translate(7.5%, -15%);
+    transform: translate(5.5%, -11%);
   }
 }
 .svg-container .circle-svg {
-  width: clamp(180px, 50vw, 450px);
+  width: clamp(180px, 35vw, 600px);
   height: auto;
   animation: rotating 30s linear infinite;
 }
@@ -330,11 +341,10 @@ button.nav-button:active, button.nav-button:focus {
 .svg-container .circle-svg text {
   font-size: 29px;
   fill: #000;
-  font-style: italic;
   font-weight: 100;
 }
 .svg-container .panel-hide {
-  transform: translate(-50%, 5px) rotate(16deg);
+  transform: translate(-55%, 5px) rotate(16deg);
   width: 500px;
   height: 250px;
   position: absolute;
@@ -351,7 +361,10 @@ button.nav-button:active, button.nav-button:focus {
 }
 @media (min-width: 1224px) {
   .svg-container .panel-hide {
-    transform: translate(-50%) rotate(16deg);
+    width: 585px;
+    height: 250px;
+    top: 50%;
+    transform: translate(-55%) rotate(16deg);
   }
 }
 
@@ -511,13 +524,19 @@ button.nav-button:active, button.nav-button:focus {
 p.centered {
   text-align: center;
   font-size: 1.3rem;
-  line-height: 1.7;
+  line-height: 1.5;
   letter-spacing: 0.5px;
   padding: 0;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  margin: 0 auto;
+  color: #111;
 }
 @media (min-width: 1224px) {
   p.centered {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 }
 p.centered a {
@@ -545,10 +564,10 @@ p.centered a {
   }
 }
 .socials a:nth-of-type(1) {
-  padding: 10px 8px 10px 10px;
+  padding: 10px 5px 10px 10px;
 }
 .socials a:nth-of-type(2) {
-  padding: 10px 10px 10px 8px;
+  padding: 10px 10px 10px 5px;
 }
 
 .hidden p {
@@ -692,4 +711,30 @@ button#darkMode svg {
 }
 button#darkMode svg path {
   fill: #111;
+}
+
+.span-hover:hover {
+  font-style: oblique;
+}
+
+.animate {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 9.5s linear forwards;
+  transition: fill 400ms ease;
+}
+
+.post-animate {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 0.1s linear forwards;
+  transition: fill 1ms ease;
+}
+
+.filled {
+  fill: rgb(0, 0, 0) !important;
+}
+
+.svg-show {
+  opacity: 1 !important;
 }/*# sourceMappingURL=main.css.map */

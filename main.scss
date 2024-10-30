@@ -127,6 +127,12 @@ a {
   }
 }
 
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 .wrapper {
   &__content {
     display: flex;
@@ -171,10 +177,10 @@ a {
       filter: blur(3rem) brightness(135%);
       opacity: 0.4;
       z-index: 1;
-      animation: rotating 30s linear infinite;
+      // animation: rotating 30s linear infinite;
 
       @media (min-width: $tablet-min-width) {
-        animation: rotating 45s linear infinite;
+        // animation: rotating 45s linear infinite;
       }
     }
   }
@@ -271,6 +277,7 @@ button.nav-button {
   svg {
     height: 32px;
     color: #111;
+    cursor: pointer;
 
     &:hover {
       @media (min-width: $desktop-min-width) {
@@ -299,23 +306,21 @@ button.nav-button {
 }
 
 .title-container {
-  pointer-events: none;
-
   .title {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-54%, -50%);
-    width: 100%;
-    max-width: 72vw;
+    transform: translate(-50%, -50%);
+    width: clamp(0px, 86vw, 900px);
+    max-width: 100%;
     z-index: 1;
 
     @media (orientation: landscape) and (max-width: 768px) and (max-height: 500px) {
       max-width: 34vw;
     }
 
-    @media (min-width: $tablet-min-width) {
-      max-width: 42rem;
+    @media (min-width: $desktop-min-width) {
+      max-width: 70vw;
     }
 
     h1 {
@@ -323,7 +328,6 @@ button.nav-button {
       display: grid;
       width: 100%;
       margin: 0 auto;
-      max-width: 620px;
       color: #111;
 
       @media (orientation: landscape) and (max-width: 768px) and (max-height: 500px) {
@@ -331,7 +335,7 @@ button.nav-button {
       }
 
       @media (min-width: $tablet-min-width) {
-        font-size: 8.2rem;
+        font-size: 9.5rem;
       }
 
       span {
@@ -341,6 +345,23 @@ button.nav-button {
         &.last {
           justify-self: flex-end;
         }
+      }
+    }
+
+    svg {
+      position: relative;
+      width: 100%;
+      height: auto;
+      z-index: 999999;
+      transition: all ease-in-out 200ms;
+
+      & > path.name-svg {
+        fill: rgba(0, 0, 0, 0);
+      }
+
+      & #title-svg {
+        opacity: 0;
+        transition: all ease-in-out 200ms;
       }
     }
   }
@@ -354,17 +375,19 @@ button.nav-button {
   justify-content: center;
   align-items: center;
   transform: translate(7.5%, -17.5%);
+  transition: all ease-in-out 1000ms;
+  opacity: 0;
 
   @media (orientation: landscape) and (max-width: 768px) and (max-height: 500px) {
     transform: translate(-5%, -5.5%);
   }
 
   @media (min-width: $tablet-min-width) {
-    transform: translate(7.5%, -15%);
+    transform: translate(5.5%, -11%);
   }
 
   .circle-svg {
-    width: clamp(180px, 50vw, 450px);
+    width: clamp(180px, 35vw, 600px);
     height: auto;
     animation: rotating 30s linear infinite;
 
@@ -375,13 +398,12 @@ button.nav-button {
     & text {
       font-size: 29px;
       fill: #000;
-      font-style: italic;
       font-weight: 100;
     }
   }
 
   .panel-hide {
-    transform: translate(-50%, 5px) rotate(16deg);
+    transform: translate(-55%, 5px) rotate(16deg);
     width: 500px;
     height: 250px;
     position: absolute;
@@ -396,7 +418,10 @@ button.nav-button {
     }
 
     @media (min-width: $desktop-min-width) {
-      transform: translate(-50%) rotate(16deg);
+      width: 585px;
+      height: 250px;
+      top: 50%;
+      transform: translate(-55%) rotate(16deg);
     }
   }
 }
@@ -561,12 +586,18 @@ button.nav-button {
 p.centered {
   text-align: center;
   font-size: 1.3rem;
-  line-height: 1.7;
+  line-height: 1.5;
   letter-spacing: 0.5px;
   padding: 0;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  margin: 0 auto;
+  color: #111;
 
   @media (min-width: $desktop-min-width) {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   & a {
@@ -598,11 +629,11 @@ p.centered {
 
   & a {
     &:nth-of-type(1) {
-      padding: 10px 8px 10px 10px;
+      padding: 10px 5px 10px 10px;
     }
 
     &:nth-of-type(2) {
-      padding: 10px 10px 10px 8px;
+      padding: 10px 10px 10px 5px;
     }
   }
 }
@@ -759,4 +790,36 @@ button#darkMode {
       fill: #111;
     }
   }
+}
+
+.span-hover:hover {
+  font-style: oblique;
+}
+
+.animate {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 9.5s linear forwards;
+  -webkit-transition: fill 400ms ease;
+  -moz-transition: fill 400ms ease;
+  -o-transition: fill 400ms ease;
+  transition: fill 400ms ease;
+}
+
+.post-animate {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 0.1s linear forwards;
+  -webkit-transition: fill 1ms ease;
+  -moz-transition: fill 1ms ease;
+  -o-transition: fill 1ms ease;
+  transition: fill 1ms ease;
+}
+
+.filled {
+  fill: rgba(0, 0, 0, 1) !important;
+}
+
+.svg-show {
+  opacity: 1 !important;
 }
