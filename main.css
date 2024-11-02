@@ -301,6 +301,7 @@ button.nav-button:active, button.nav-button:focus {
 }
 .title-container .title svg > path.name-svg {
   fill: rgba(0, 0, 0, 0);
+  transition: all ease-in-out 300ms;
 }
 .title-container .title svg #title-svg {
   opacity: 0;
@@ -386,7 +387,7 @@ button.nav-button:active, button.nav-button:focus {
 }
 @media (min-width: 1224px) {
   .about-container .copy {
-    margin: 48px auto;
+    margin: 32px auto 48px;
   }
 }
 .about-container p {
@@ -406,6 +407,34 @@ button.nav-button:active, button.nav-button:focus {
   line-height: 1;
   margin: 0 0 12px;
   color: #000;
+}
+.about-container .large.title {
+  font-family: "GRIFTER";
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 20px auto;
+}
+@media (min-width: 1224px) {
+  .about-container .large.title {
+    margin: 26px auto;
+  }
+}
+.about-container .list-container {
+  background: rgba(204, 204, 204, 0.25);
+  padding: 24px;
+}
+.about-container .list-container .title {
+  margin: 0 0 8px;
+  font-weight: 900;
+}
+.about-container .about-list {
+  font-family: "Raleway", sans-serif;
+  list-style-type: disc;
+  letter-spacing: 0.5px;
+}
+.about-container .about-list li {
+  text-transform: uppercase;
+  line-height: 1.8;
 }
 
 .image-container {
