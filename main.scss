@@ -833,10 +833,10 @@ button#darkMode {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   animation: dash 9.5s linear forwards;
-  -webkit-transition: fill 400ms ease;
-  -moz-transition: fill 400ms ease;
-  -o-transition: fill 400ms ease;
-  transition: fill 400ms ease;
+  -webkit-transition: fill 300ms ease;
+  -moz-transition: fill 300ms ease;
+  -o-transition: fill 300ms ease;
+  transition: fill 300ms ease;
 }
 
 .post-animate {

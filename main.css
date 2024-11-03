@@ -750,7 +750,7 @@ button#darkMode svg path {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   animation: dash 9.5s linear forwards;
-  transition: fill 400ms ease;
+  transition: fill 300ms ease;
 }
 
 .post-animate {
