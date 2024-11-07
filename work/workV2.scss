@@ -142,6 +142,7 @@ $desktop-min-width: 1224px;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: flex-start;
+      pointer-events: none;
       gap: 8px;
       padding: 66px 0 0 0;
       margin: 10px 0 14px 24px;
@@ -160,6 +161,7 @@ $desktop-min-width: 1224px;
         list-style: none;
         border: none;
         background-color: #f8f8f6;
+        pointer-events: auto;
 
         &:hover {
           transform: none;

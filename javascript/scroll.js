@@ -11,8 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => {
       nameSvg.map((svg) => svg.classList.add("filled"));
+    }, 2300);
+
+    setTimeout(() => {
       titleSvg.classList.add("svg-show");
-    }, 2750);
+    }, 2200);
   };
 
   showTitle();
