@@ -280,4 +280,19 @@ document.addEventListener("DOMContentLoaded", () => {
   preloadStylesheets().then(() => {
     Object.values(modals).forEach((modalObj) => setupModalButtons(modalObj));
   });
+
+  const navLinks = document.querySelectorAll("#nav-list > ul > li > a");
+  const menuButton = getById("nav-button");
+
+  menuButton.addEventListener("click", () => {
+    gsap.set(navLinks, { x: -350, opacity: 0 });
+
+    gsap.to(navLinks, {
+      x: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: "power2.out",
+      stagger: 0.1,
+    });
+  });
 });
