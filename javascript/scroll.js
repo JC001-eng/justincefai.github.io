@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => {
       titleSvg.classList.add("svg-show");
-    }, 2200);
+    }, 2100);
   };
 
   showTitle();
