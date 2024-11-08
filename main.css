@@ -475,7 +475,7 @@ button.nav-button:active, button.nav-button:focus {
   position: relative;
   overflow: hidden;
   width: 90vw;
-  height: 90vh;
+  height: 90dvh;
   border: 1px solid #111;
   display: grid;
   align-items: center;
