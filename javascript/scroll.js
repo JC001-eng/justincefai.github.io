@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2100);
   };
 
+  showTitle();
+
   const handleScroll = (modal) => {
     const scrollPosition = modal.scrollTop;
 
