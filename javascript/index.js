@@ -173,6 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const testimonials = getById("testimonials");
     const projectsNav = getById("projectsNav");
     const testimonialsNav = getById("testimonialsNav");
+    const scrollTopAnchor = document.getElementById("work-main");
 
     projects.classList.add("show");
     testimonials.classList.remove("show");
@@ -184,6 +185,10 @@ document.addEventListener("DOMContentLoaded", () => {
       testimonials.classList.remove("show");
       projectsNav.classList.add("active");
       testimonialsNav.classList.remove("active");
+      scrollTopAnchor.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     };
 
     testimonialsNav.onclick = (event) => {
@@ -192,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
       testimonials.classList.add("show");
       testimonialsNav.classList.add("active");
       projectsNav.classList.remove("active");
-      document.getElementById("work-main").scrollIntoView({
+      scrollTopAnchor.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
@@ -215,6 +220,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("click", (event) => {
     const { target } = event;
+    // TODO: refactor scrollTopAnchor to be DRY
+    const scrollTopAnchor = document.getElementById("work-main");
 
     if (target.classList.contains("read-more")) {
       const content = target.parentElement.previousElementSibling;
@@ -225,14 +232,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    const anchor = document.getElementById("work-main");
-
     const backToTopTarget = event.target.closest(
       ".scroll-to-top, .scroll-to-top svg"
     );
 
     if (backToTopTarget) {
-      anchor.scrollIntoView({
+      scrollTopAnchor.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
