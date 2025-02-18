@@ -192,6 +192,10 @@ document.addEventListener("DOMContentLoaded", () => {
       testimonials.classList.add("show");
       testimonialsNav.classList.add("active");
       projectsNav.classList.remove("active");
+      document.getElementById("work-main").scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     };
   };
 
