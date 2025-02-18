@@ -7,7 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const titleSvg = document.getElementById("title-svg");
 
   const showTitle = () => {
-    nameSvg.map((svg) => svg.classList.add("animate"));
+    nameSvg.map((svg) => {
+      svg.style.stroke = "black";
+      svg.classList.add("animate");
+    });
 
     setTimeout(() => {
       nameSvg.map((svg) => svg.classList.add("filled"));
@@ -18,7 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2100);
   };
 
-  showTitle();
+  setTimeout(() => {
+    showTitle();
+  }, 500);
 
   const handleScroll = (modal) => {
     const scrollPosition = modal.scrollTop;
