@@ -7,13 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const titleSvg = document.getElementById("title-svg");
 
   const showTitle = () => {
-    nameSvg.map((svg) => {
+    nameSvg.forEach((svg) => {
       svg.style.stroke = "black";
       svg.classList.add("animate");
     });
 
     setTimeout(() => {
-      nameSvg.map((svg) => svg.classList.add("filled"));
+      nameSvg.forEach((svg) => svg.classList.add("filled"));
     }, 2300);
 
     setTimeout(() => {
@@ -46,11 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   modal.addEventListener("scroll", () => {
     if (!ticking) {
+      ticking = true;
       window.requestAnimationFrame(() => {
         handleScroll(modal);
         ticking = false;
       });
-      ticking = true;
     }
   });
 
@@ -64,13 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const isInverted = htmlElement.style.filter === "invert(0.95)";
 
     if (prefersDarkMode) {
-      return htmlElement.style.filter === "invert(0)"
-        ? (htmlElement.style.filter = "invert(0.95)")
-        : (htmlElement.style.filter = "invert(0)");
+      htmlElement.style.filter =
+        htmlElement.style.filter === "invert(0)" ? "invert(0.95)" : "invert(0)";
     } else {
-      return !!isInverted
-        ? (htmlElement.style.filter = "invert(0)")
-        : (htmlElement.style.filter = "invert(0.95)");
+      htmlElement.style.filter = isInverted ? "invert(0)" : "invert(0.95)";
     }
   };
 
