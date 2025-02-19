@@ -307,8 +307,9 @@ button.nav-button:active, button.nav-button:focus {
   transition: all ease-in-out 200ms;
 }
 .title-container .title svg > path.name-svg {
-  fill: rgba(0, 0, 0, 0);
   transition: all ease-in-out 300ms;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
 }
 .title-container .title svg #title-svg {
   opacity: 0;
@@ -757,12 +758,22 @@ button#darkMode svg path {
 }
 
 .animate {
+  fill: transparent;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 8s linear forwards;
-  transition: fill 400ms ease;
+  animation: dash 8s linear forwards, fillFade 0.4s ease-in-out 8s forwards;
 }
 
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fillFade {
+  to {
+    fill: black;
+  }
+}
 .post-animate {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;

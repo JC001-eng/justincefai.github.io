@@ -357,6 +357,8 @@ button.nav-button {
 
       & > path.name-svg {
         transition: all ease-in-out 300ms;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
       }
 
       & #title-svg {
@@ -837,14 +839,34 @@ button#darkMode {
 }
 
 .animate {
-  fill: rgba(0, 0, 0, 0);
+  fill: transparent;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 8s linear forwards;
-  -webkit-transition: fill 400ms ease;
-  -moz-transition: fill 400ms ease;
-  -o-transition: fill 400ms ease;
-  transition: fill 400ms ease;
+  animation: dash 8s linear forwards, fillFade 0.4s ease-in-out 8s forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillFade {
+  to {
+    fill: black;
+  }
+}
+
+@-webkit-keyframes fillFade {
+  to {
+    fill: black;
+  }
 }
 
 .post-animate {
